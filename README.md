@@ -1,2 +1,2 @@
-# CMPT276
-CMPT276 group project
+FoodForThought
+CMPT276 Summer 2018
