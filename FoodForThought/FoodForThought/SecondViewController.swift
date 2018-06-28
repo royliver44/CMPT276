@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  SecondViewController.swift
 //  FoodForThought
 //
-//  Created by Jordan Ehrenholz on 6/10/18.
+//  Created by Jordan Ehrenholz on 6/27/18.
 //  Copyright © 2018 Jordan Ehrenholz. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
