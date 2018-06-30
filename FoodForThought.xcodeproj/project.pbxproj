@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D8D3F9A20E78CE000899583 /* October.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D8D3F9920E78CE000899583 /* October.mp3 */; };
+		6D8D3F9C20E78CE700899583 /* The Truth That You Leave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D8D3F9B20E78CE700899583 /* The Truth That You Leave.mp3 */; };
+		6D8D3F9E20E78CED00899583 /* Kiss The Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6D8D3F9D20E78CED00899583 /* Kiss The Rain.mp3 */; };
+		6D8D3FA020E7969F00899583 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8D3F9F20E7969F00899583 /* MusicController.swift */; };
 		F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F720E48DD0005D5805 /* AppDelegate.swift */; };
 		F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F920E48DD0005D5805 /* FirstViewController.swift */; };
 		F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3FB20E48DD0005D5805 /* SecondViewController.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D8D3F9920E78CE000899583 /* October.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = October.mp3; sourceTree = "<group>"; };
+		6D8D3F9B20E78CE700899583 /* The Truth That You Leave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Truth That You Leave.mp3"; sourceTree = "<group>"; };
+		6D8D3F9D20E78CED00899583 /* Kiss The Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kiss The Rain.mp3"; sourceTree = "<group>"; };
+		6D8D3F9F20E7969F00899583 /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
 		F632C3F420E48DD0005D5805 /* FoodForThought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodForThought.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F632C3F720E48DD0005D5805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F632C3F920E48DD0005D5805 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D8D3F9820E78CCB00899583 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				6D8D3F9920E78CE000899583 /* October.mp3 */,
+				6D8D3F9B20E78CE700899583 /* The Truth That You Leave.mp3 */,
+				6D8D3F9D20E78CED00899583 /* Kiss The Rain.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		F632C3EB20E48DD0005D5805 = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +121,11 @@
 				F632C3F920E48DD0005D5805 /* FirstViewController.swift */,
 				F632C3FB20E48DD0005D5805 /* SecondViewController.swift */,
 				F632C3FD20E48DD0005D5805 /* Main.storyboard */,
+				6D8D3F9F20E7969F00899583 /* MusicController.swift */,
 				F632C40020E48DD0005D5805 /* Assets.xcassets */,
 				F632C40220E48DD0005D5805 /* LaunchScreen.storyboard */,
 				F632C40520E48DD0005D5805 /* Info.plist */,
+				6D8D3F9820E78CCB00899583 /* Music */,
 			);
 			path = FoodForThought;
 			sourceTree = "<group>";
@@ -197,6 +217,11 @@
 					F632C3F320E48DD0005D5805 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F632C40920E48DD0005D5805 = {
 						CreatedOnToolsVersion = 9.2;
@@ -238,6 +263,9 @@
 				F632C40420E48DD0005D5805 /* LaunchScreen.storyboard in Resources */,
 				F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */,
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
+				6D8D3F9A20E78CE000899583 /* October.mp3 in Resources */,
+				6D8D3F9E20E78CED00899583 /* Kiss The Rain.mp3 in Resources */,
+				6D8D3F9C20E78CE700899583 /* The Truth That You Leave.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */,
+				6D8D3FA020E7969F00899583 /* MusicController.swift in Sources */,
 				F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */,
 				F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */,
 			);
