@@ -1,8 +1,8 @@
-<?xml version=“1.0”?>
+<?xml version="1.0"?>
 <meals>
     <meal id="1">
         <name>
-            Tea
+            Breakfast
         </name>
         <time>
             07:00
@@ -10,8 +10,8 @@
     </meal>
     <meal id="2">
         <name>
-            Second breakfast
-        <name>
+            Lunch
+        </name>
         <time>
             13:00
         </time>

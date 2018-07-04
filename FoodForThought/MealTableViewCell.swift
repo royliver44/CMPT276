@@ -27,7 +27,6 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
     }
     
     @IBAction func editMealName(_ sender: UITextField) {
-        print("editing meal name")
         activeTextField = sender
         self.mealCellDelegate?.nameWasEdited(activeTextField!, row: indexPathRow)
     }
@@ -36,31 +35,28 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
     @IBAction func setTime(_ sender: UITextField) {
         activeTextField = sender
         
-        var datePickerView: UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.time
+        var TimePickerView: UIDatePicker = UIDatePicker()
+        TimePickerView.datePickerMode = UIDatePickerMode.time
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
-        datePickerView.date = dateFormatter.date(from: mealTime.text!)!
+        TimePickerView.date = dateFormatter.date(from: mealTime.text!)!
         
-        sender.inputView = datePickerView
+        sender.inputView = TimePickerView
         
         // datepicker toolbar setup
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
         let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneDatePickerPressed))
-        
-        // if you remove the space element, the "done" button will be left aligned
-        // you can add more items if you want
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneTimePickerPressed))
         toolBar.setItems([space, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
         
         sender.inputAccessoryView = toolBar
         
-        datePickerView.addTarget(self, action: #selector(self.handleDatePicker), for: UIControlEvents.valueChanged)
+        TimePickerView.addTarget(self, action: #selector(self.handleDatePicker), for: UIControlEvents.valueChanged)
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {
@@ -69,11 +65,9 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
         mealTime.text = dateFormatter.string(from: sender.date)
     }
     
-    @objc func doneDatePickerPressed(){
-        print("done button pressed")
+    @objc func doneTimePickerPressed(){
         self.endEditing(true)
-        self.mealCellDelegate?.timeWasEdited(activeTextField!)
-        
+        self.mealCellDelegate?.timeWasEdited(activeTextField!, row: indexPathRow)
     }
     
     func displayNoMealsScheduled(){
@@ -88,8 +82,6 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
         mealTime.isHidden = false
         deleteMealButton.isHidden = false
         deleteMealButton.isEnabled = true
-        print("setMealProps called")
-        print(meal.mealName)
         mealName.text = meal.mealName
         
         let dateFormatter = DateFormatter()
@@ -120,8 +112,10 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
 
 }
 
+// Custom protocol to enable MealTableViewController to update meal data source
+// with edited values
 protocol MealCellDelegate {
-    func timeWasEdited(_ mealTimeTextField: UITextField)
+    func timeWasEdited(_ mealTimeTextField: UITextField, row: Int)
     func nameWasEdited(_ mealNameTextField: UITextField, row: Int)
     func mealWasDeleted(row: Int)
 }

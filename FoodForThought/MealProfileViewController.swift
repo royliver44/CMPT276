@@ -18,6 +18,7 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var newMealTimeWarning: UILabel!
     
     // MARK: Actions
+    // Adds a new meal to scheduled meals
     @IBAction func addMeal(_ sender: UIButton) {
         // If no value entered for meal name or time, tell
         // user these must be entered
@@ -49,19 +50,18 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.newMealName.delegate = self
         self.newMealTime.delegate = self
         
-        var datePickerView: UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.time
+        var timePickerView: UIDatePicker = UIDatePicker()
+        timePickerView.datePickerMode = UIDatePickerMode.time
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
-        datePickerView.date = dateFormatter.date(from: "00:00")!
+        timePickerView.date = dateFormatter.date(from: "00:00")!
         
-        newMealTime.inputView = datePickerView
+        newMealTime.inputView = timePickerView
         
         // datepicker toolbar setup
         let toolBar = UIToolbar()
@@ -69,16 +69,13 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
         toolBar.isTranslucent = true
         let space = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(doneDatePickerPressed))
-        
-        // if you remove the space element, the "done" button will be left aligned
-        // you can add more items if you want
         toolBar.setItems([space, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
         
         newMealTime.inputAccessoryView = toolBar
         
-        datePickerView.addTarget(self, action: #selector(self.handleDatePicker), for: UIControlEvents.valueChanged)
+        timePickerView.addTarget(self, action: #selector(self.handleDatePicker), for: UIControlEvents.valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,11 +89,9 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func doneDatePickerPressed(){
-        print("done button pressed")
         newMealTimeWarning.text = ""
         newMealTime.endEditing(true)
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,23 +104,4 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
         newMealNameWarning.text = ""
         return false
     }
-    
-    
-   
-    
-    
-    
-    
-    
-//
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }

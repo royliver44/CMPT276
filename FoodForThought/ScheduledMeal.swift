@@ -1,5 +1,6 @@
 //
 //  ScheduledMeal.swift
+//  A data model for a ScheduledMeal object
 //  FoodForThought
 //
 //  Created by Andy Adams on 6/29/18.
