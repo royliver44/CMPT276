@@ -99,13 +99,13 @@ class musicController: UIViewController {
     
     @objc func lableUpdate(){
         //Total duration of play.
-        if((Int(audioPlayer.duration) % 60) > 10){
+        if((Int(audioPlayer.duration) % 60) > 9){
             musicTimeDisplay?.text = "\(Int(audioPlayer.duration) / 60):\(Int(audioPlayer.duration) % 60)"
         }else{
             musicTimeDisplay?.text = "\(Int(audioPlayer.duration) / 60):0\(Int(audioPlayer.duration) % 60)"
         }
         //currentTime of play
-        if((Int(audioPlayer.currentTime) % 60) > 10){
+        if((Int(audioPlayer.currentTime) % 60) > 9){
         musicCurrentDisplay?.text = "\(Int(audioPlayer.currentTime) / 60):\(Int(audioPlayer.currentTime) % 60)"
         }else{
             musicCurrentDisplay?.text = "\(Int(audioPlayer.currentTime) / 60):0\(Int(audioPlayer.currentTime) % 60)"
