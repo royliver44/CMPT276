@@ -8,16 +8,31 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell, UIPickerViewDelegate {
+class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDelegate {
 
     // MARK: Properties
     @IBOutlet weak var mealName: UITextField!
     @IBOutlet weak var mealTime: UITextField!
+    @IBOutlet weak var deleteMealButton: UIButton!
     
     var activeTextField: UITextField?
-    var editTimeDelegate: EditTimeDelegate?
+    var mealCellDelegate: MealCellDelegate?
+    var indexPathRow: Int = 0
     
     // MARK: Actions
+    @IBAction func deleteMeal(_ sender: UIButton) {
+        mealName.text = ""
+        mealTime.text = ""
+        self.mealCellDelegate?.mealWasDeleted(row: indexPathRow)
+    }
+    
+    @IBAction func editMealName(_ sender: UITextField) {
+        print("editing meal name")
+        activeTextField = sender
+        self.mealCellDelegate?.nameWasEdited(activeTextField!, row: indexPathRow)
+    }
+    
+    
     @IBAction func setTime(_ sender: UITextField) {
         activeTextField = sender
         
@@ -57,17 +72,22 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate {
     @objc func doneDatePickerPressed(){
         print("done button pressed")
         self.endEditing(true)
-        self.editTimeDelegate?.timeWasEdited(activeTextField!)
+        self.mealCellDelegate?.timeWasEdited(activeTextField!)
         
     }
     
     func displayNoMealsScheduled(){
-        let noMealsLabel = UILabel()
-        noMealsLabel.text = "No scheduled meals"
-        addSubview(noMealsLabel)
+        mealName.isHidden = true
+        mealTime.isHidden = true
+        deleteMealButton.isHidden = true
+        deleteMealButton.isEnabled = false
     }
     
     func setMealProperties(meal: ScheduledMeal) {
+        mealName.isHidden = false
+        mealTime.isHidden = false
+        deleteMealButton.isHidden = false
+        deleteMealButton.isEnabled = true
         print("setMealProps called")
         print(meal.mealName)
         mealName.text = meal.mealName
@@ -81,9 +101,16 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate {
         mealTime.text = time
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        textField.resignFirstResponder()
+        return false
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        mealName.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -93,6 +120,8 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate {
 
 }
 
-protocol EditTimeDelegate {
+protocol MealCellDelegate {
     func timeWasEdited(_ mealTimeTextField: UITextField)
+    func nameWasEdited(_ mealNameTextField: UITextField, row: Int)
+    func mealWasDeleted(row: Int)
 }

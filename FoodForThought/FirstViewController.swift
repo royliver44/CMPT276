@@ -12,7 +12,14 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        //self.tabBarController.tabBar.hidden = NO
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +27,10 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        self.hidesBottomBarWhenPushed = true
+//    }
 
+    
 }
 
