@@ -14,7 +14,7 @@ class musicController: UIViewController {
     //set up audio player
     var audioPlayer = AVAudioPlayer()
     
-    //todo: change the list to automatic generation.
+    //todo: change the list to automatic generation. (done)
 
     var audioList = [[String]]()
     var itr = 0
@@ -78,7 +78,15 @@ class musicController: UIViewController {
     //Music functions
     func play(){
         audioPlayer.play()
-        // todo: creat a thread that call next up on finish playing.
+
+         // todo: creat a thread that call next up on finish playing.(done)
+        DispatchQueue.global(qos: .background).async {
+            
+            while(self.audioPlayer.duration - self.audioPlayer.currentTime > 1){
+                sleep(1)
+            }
+            self.next()
+        }
     }
     
     func next(){
