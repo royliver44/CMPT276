@@ -98,7 +98,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="saveMealProfile:" destination="x6G-7o-aMy" eventType="touchUpInside" id="BDb-UR-mYi"/>
+                                    <action selector="saveMealProfile:" destination="x6G-7o-aMy" eventType="touchUpInside" id="2Z5-4P-lGm"/>
+                                    <action selector="saveMealProfile:" destination="uvD-sa-Kih" eventType="touchUpInside" id="PiL-V4-HSa"/>
                                     <segue destination="9pv-A4-QxB" kind="show" id="ufr-rE-svu"/>
                                 </connections>
                             </button>

@@ -25,9 +25,8 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     // MARK: Actions
     // Write changes to mealProfile.xml
     // NOTE: not yet implemented; changes will not be saved
-    @IBAction func saveMealProfile(_ sender: UIButton) {
-        // write to xml
-    }
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +75,38 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     func mealWasDeleted(row: Int) {
         scheduledMeals.remove(at: row)
         tableView.reloadData()
+    }
+    
+    func saveScheduledMeals() {
+        var mealXMLStrings = [String]()
+        var masterXMLString: String = "<?xml version=\"1.0\"?><meals>\n"
+        for each in scheduledMeals {
+            masterXMLString.append(createXMLString(meal: each))
+        }
+        masterXMLString.append("</meals>\n")
+        print(masterXMLString)
+        
+        
+        
+        if let path = Bundle.main.url(forResource: "mealProfile", withExtension: "xml") {
+            let data = Data(masterXMLString.utf8)
+            do {
+                try data.write(to: path, options: .atomic)
+                print("wrote to file?")
+            } catch {
+                print("did not write to file")
+                print(error)
+            }
+        }
+    }
+    
+    private func createXMLString(meal: ScheduledMeal) -> String {
+        var mealXML: String = "<meal>\n<name>\n"
+        mealXML.append(meal.mealName)
+        mealXML.append("\n</name>\n<time>\n")
+        mealXML.append(meal.mealTime)
+        mealXML.append("\n</time>\n</meal>\n")
+        return mealXML
     }
 
     // TABLE VIEW CONTROLLER METHODS

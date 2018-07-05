@@ -17,6 +17,8 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var newMealNameWarning: UILabel!
     @IBOutlet weak var newMealTimeWarning: UILabel!
     
+    var mealTableViewController: MealTableViewController?
+    
     // MARK: Actions
     // Adds a new meal to scheduled meals
     @IBAction func addMeal(_ sender: UIButton) {
@@ -32,14 +34,14 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
             ready = false
         }
         
-        // If all values have been entered, created new meal
-        // and add to table
+        // If all values have been entered, created new meal based
+        // on user input and add to table
         if ready {
             guard let newMeal: ScheduledMeal = ScheduledMeal(mealName: newMealName.text!, mealTime: newMealTime.text!, duration: 30) else {
                 fatalError("Unable to instantiate new meal")
             }
-            let mealTableVC = self.childViewControllers.first as? MealTableViewController
-            mealTableVC?.addMeal(newMeal: newMeal)
+            
+            mealTableViewController?.addMeal(newMeal: newMeal)
             
             // Reset fields
             newMealName.text = ""
@@ -47,6 +49,10 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
             newMealNameWarning.text = ""
             newMealTimeWarning.text = ""
         }
+    }
+    
+    @IBAction func saveMealProfile(_ sender: UIButton) {
+        self.mealTableViewController?.saveScheduledMeals()
     }
     
     override func viewDidLoad() {
@@ -103,5 +109,13 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         newMealNameWarning.text = ""
         return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "embeddedMealTable" {
+            if let viewController1 = segue.destination as? MealTableViewController {
+                self.mealTableViewController = viewController1
+            }
+        }
     }
 }
