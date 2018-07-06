@@ -14,8 +14,10 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var mealTable: UIView!
     @IBOutlet weak var newMealName: UITextField!
     @IBOutlet weak var newMealTime: UITextField!
+    @IBOutlet weak var newMealDuration: UITextField!
     @IBOutlet weak var newMealNameWarning: UILabel!
     @IBOutlet weak var newMealTimeWarning: UILabel!
+    @IBOutlet weak var newMealDurationWarning: UILabel!
     
     var mealTableViewController: MealTableViewController?
     
@@ -33,11 +35,15 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
             newMealTimeWarning.text = "Enter meal time"
             ready = false
         }
+        if newMealDuration.text == "" {
+            newMealDurationWarning.text = "Enter meal duration"
+            ready = false
+        }
         
         // If all values have been entered, created new meal based
         // on user input and add to table
         if ready {
-            guard let newMeal: ScheduledMeal = ScheduledMeal(mealName: newMealName.text!, mealTime: newMealTime.text!, duration: 30) else {
+            guard let newMeal: ScheduledMeal = ScheduledMeal(mealName: newMealName.text!, mealTime: newMealTime.text!, mealDuration: newMealDuration.text!) else {
                 fatalError("Unable to instantiate new meal")
             }
             
@@ -46,8 +52,10 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
             // Reset fields
             newMealName.text = ""
             newMealTime.text = ""
+            newMealDuration.text = ""
             newMealNameWarning.text = ""
             newMealTimeWarning.text = ""
+            newMealDurationWarning.text = ""
         }
     }
     

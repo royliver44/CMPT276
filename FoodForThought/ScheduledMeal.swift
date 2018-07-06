@@ -14,17 +14,17 @@ class ScheduledMeal{
     //MARK: Properties
     var mealName: String
     var mealTime: String
-    var duration: Int
+    var mealDuration: String
  
-    init?(mealName: String, mealTime: String, duration: Int) {
+    init?(mealName: String, mealTime: String, mealDuration: String) {
         // Initialization should fail if there is no name or values are negative
-        if mealName.isEmpty || mealTime.isEmpty || duration < 0  {
+        if mealName.isEmpty || mealTime.isEmpty || mealDuration.isEmpty  {
             return nil
         }
         
         self.mealName = mealName
         self.mealTime = mealTime
-        self.duration = duration
+        self.mealDuration = mealDuration
     }
     
 

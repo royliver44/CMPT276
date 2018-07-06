@@ -18,19 +18,26 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     var eName: String = String()
     var mealName: String = String()
     var mealTime: String = String()
+    var mealDuration: String = String()
+    var mealProfileURL: NSURL?
     
     // MARK: Outlets
     @IBOutlet var mealTable: UITableView!
     
-    // MARK: Actions
-    // Write changes to mealProfile.xml
-    // NOTE: not yet implemented; changes will not be saved
-    
-  
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadSavedMeals()
+        
+        // Access mealProfile.xml file from user's documents directory; if file exists,
+        // load saved meals based on file data; if file does not exist, create it
+        var documentsDirectory: NSURL?
+        documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last! as NSURL
+        mealProfileURL = documentsDirectory!.appendingPathComponent("mealProfile.xml")! as NSURL
+        
+        if (mealProfileURL!.checkResourceIsReachableAndReturnError(nil)) {
+            self.loadSavedMeals()
+        }else{
+            NSData().write(to: mealProfileURL! as URL, atomically:true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,35 +47,45 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
 
     // Load saved meal information from mealProfile.xml
     func loadSavedMeals() {
-        // Parse mealProfile.xml
-        if let path = Bundle.main.url(forResource: "mealProfile", withExtension: "xml")  {
-            if let parser = XMLParser(contentsOf: path) {
-                parser.delegate = self
-                if parser.parse() {
-                    print("parsed")
-                } else {
-                    print("unable to parse")
-                }
-            }
+        // Parse mealProfile.xml; parser methods create ScheduledMeal objects
+        // and load them into the scheduledMeals data source array
+        if let parser = XMLParser(contentsOf: mealProfileURL! as URL) {
+            parser.delegate = self
+            parser.parse()
         }
     }
     
-    
     // Add new meal
     func addMeal(newMeal: ScheduledMeal) {
+        // Add newly scheduled meal to scheduledMeals data source array,
+        // then sort array by meal time so meals are displayed in chronological order
         scheduledMeals.append(newMeal)
+        scheduledMeals.sort {
+            $0.mealTime < $1.mealTime
+        }
         tableView.reloadData()
     }
     
-    // Update mealTime for edited meal
-    func timeWasEdited(_ mealTimeTextField: UITextField, row: Int) {
-        // Update data source with edited value
-        scheduledMeals[row].mealTime = mealTimeTextField.text!
-    }
-    
-    // Update meal name if edited
+    // Update edited mealName
     func nameWasEdited(_ mealNameTextField: UITextField, row: Int) {
         scheduledMeals[row].mealName = mealNameTextField.text!
+    }
+    
+    // Update edited mealTime
+    func timeWasEdited(_ mealTimeTextField: UITextField, row: Int) {
+        // Update data source with edited meal time value, then sort meals
+        // by time to display in chronological order
+        scheduledMeals[row].mealTime = mealTimeTextField.text!
+        scheduledMeals.sort {
+            $0.mealTime < $1.mealTime
+        }
+        tableView.reloadData()
+    }
+    
+    // Update edited mealDuration
+    func durationWasEdited(duration: String, row: Int) {
+        scheduledMeals[row].mealDuration = duration
+        tableView.reloadData()
     }
     
     // Delete meal cell if "delete" button pressed
@@ -78,34 +95,32 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     }
     
     func saveScheduledMeals() {
-        var mealXMLStrings = [String]()
-        var masterXMLString: String = "<?xml version=\"1.0\"?><meals>\n"
+        // For each meal in scheduled meal, create an XML string and append it
+        // to the growing master string; then append closing tag
+        var masterXMLString: String = "<?xml version=\"1.0\"?>\n<meals>\n"
         for each in scheduledMeals {
             masterXMLString.append(createXMLString(meal: each))
         }
         masterXMLString.append("</meals>\n")
-        print(masterXMLString)
         
-        
-        
-        if let path = Bundle.main.url(forResource: "mealProfile", withExtension: "xml") {
-            let data = Data(masterXMLString.utf8)
+        // Write XML data to mealProfile.xml
+        let data = Data(masterXMLString.utf8)
             do {
-                try data.write(to: path, options: .atomic)
-                print("wrote to file?")
+                try data.write(to: mealProfileURL! as URL, options: .atomic)
             } catch {
-                print("did not write to file")
                 print(error)
             }
-        }
     }
-    
+        
+    // Creates an XML string from meal data
     private func createXMLString(meal: ScheduledMeal) -> String {
         var mealXML: String = "<meal>\n<name>\n"
         mealXML.append(meal.mealName)
         mealXML.append("\n</name>\n<time>\n")
         mealXML.append(meal.mealTime)
-        mealXML.append("\n</time>\n</meal>\n")
+        mealXML.append("\n</time>\n<duration>\n")
+        mealXML.append(meal.mealDuration)
+        mealXML.append("\n</duration>\n</meal>\n")
         return mealXML
     }
 
@@ -161,24 +176,18 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     
     
     // PARSER DELEGATE FUNCTIONS
-    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        print(parseError.localizedDescription)
-    }
-    
-    func parserDidStartDocument(_ parser: XMLParser) {
-    }
-    
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
         if elementName == "meal" {
             mealName = String()
             mealTime = String()
+            mealDuration = String()
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "meal" {
-            let meal = ScheduledMeal(mealName: self.mealName, mealTime: self.mealTime, duration: 30)
+            let meal = ScheduledMeal(mealName: self.mealName, mealTime: self.mealTime, mealDuration: self.mealDuration)
             scheduledMeals.append(meal!)
         }
     }
@@ -190,6 +199,8 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
                 mealName += data
             } else if eName == "time" {
                 mealTime += data
+            } else if eName == "duration" {
+                mealDuration += data
             }
         }
     }

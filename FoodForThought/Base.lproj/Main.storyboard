@@ -128,7 +128,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZE-2F-nnJ">
-                                <rect key="frame" x="139" y="318" width="97" height="30"/>
+                                <rect key="frame" x="121" y="318" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
@@ -143,7 +143,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paN-cT-k6b">
-                                <rect key="frame" x="139" y="356" width="97" height="21"/>
+                                <rect key="frame" x="121" y="355" width="97" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,6 +157,21 @@
                                     <segue destination="Khb-zO-Zhz" kind="embed" identifier="embeddedMealTable" id="Ljc-ic-jJh"/>
                                 </connections>
                             </containerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3jv-Op-HBQ">
+                                <rect key="frame" x="226" y="319" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZL-1G-iLu">
+                                <rect key="frame" x="226" y="356" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="1vS-aQ-nQ2"/>
@@ -164,6 +179,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mealTable" destination="3Fr-I3-1Jw" id="tIp-CZ-98h"/>
+                        <outlet property="newMealDuration" destination="3jv-Op-HBQ" id="y5x-DB-iHf"/>
+                        <outlet property="newMealDurationWarning" destination="8ZL-1G-iLu" id="nT1-mm-mdP"/>
                         <outlet property="newMealName" destination="ndM-5G-HiD" id="m3N-hM-LO1"/>
                         <outlet property="newMealNameWarning" destination="gcV-CC-2vH" id="sCF-sh-5Xs"/>
                         <outlet property="newMealTime" destination="NZE-2F-nnJ" id="83S-T6-xwN"/>
@@ -203,7 +220,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzv-dc-IVm">
-                                            <rect key="frame" x="134" y="8" width="97" height="30"/>
+                                            <rect key="frame" x="121" y="8" width="73" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="textColor"/>
@@ -221,11 +238,23 @@
                                                 <action selector="deleteMeal:" destination="tY1-MB-u7p" eventType="touchUpInside" id="ZVc-XA-70y"/>
                                             </connections>
                                         </button>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GpU-Vj-J0N">
+                                            <rect key="frame" x="202" y="8" width="61" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="editDuration:" destination="tY1-MB-u7p" eventType="editingDidEnd" id="uBO-PZ-GKj"/>
+                                            </connections>
+                                        </textField>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.18560189260563381" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="deleteMealButton" destination="Usl-Ur-ZQn" id="Y26-RF-BtZ"/>
+                                    <outlet property="mealDuration" destination="GpU-Vj-J0N" id="5TE-C7-q7F"/>
                                     <outlet property="mealName" destination="66F-ah-h6l" id="jmX-zm-0n8"/>
                                     <outlet property="mealTime" destination="lzv-dc-IVm" id="WDZ-v5-0C5"/>
                                 </connections>
