@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<meals>
+    <meal id="1">
+        <name>
+            Breakfast
+        </name>
+        <time>
+            07:00
+        </time>
+    </meal>
+    <meal id="2">
+        <name>
+            Lunch
+        </name>
+        <time>
+            13:00
+        </time>
+    </meal>
+</meals>
+
