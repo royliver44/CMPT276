@@ -10,6 +10,12 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+//    override func viewWillAppear(_ animated: Bool) {
+//        // Show tab bar and ensure Journal tab (index = 1) is selected
+//        self.tabBarController?.tabBar.isHidden = false
+//        self.tabBarController?.selectedIndex = 1
+//    }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -7,16 +7,56 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    var isGrantedAccess = false
 
-
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping ([UNNotificationPresentationOptions]) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    }
+    
+    func requestAuthorization(options: UNAuthorizationOptions = [],
+                              completionHandler: @escaping (Bool, Error?) -> Void) {
+        
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert,.sound,.badge],
+            completionHandler: { (granted,error) in
+                self.isGrantedAccess = granted
+                if granted{
+                    self.setCategories()
+                } else {
+                    let alert = UIAlertController(title: "Notification Access", message: "In order to use this application, turn on notification permissions.", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                    alert.addAction(alertAction)
+                    self.window?.rootViewController?.present(alert , animated: true, completion: nil)
+                }
+        })
         return true
+    }
+    
+    func setCategories() {
+        
+    }
+    
+    func addNotification(content:UNNotificationContent, trigger:UNNotificationTrigger?, indentifier:String) {
+        let request = UNNotificationRequest(identifier: indentifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (errorObject) in
+            if let error = errorObject {
+                print("Error \(error.localizedDescription) in notification \(indentifier)")
+            }
+        })
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
