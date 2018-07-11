@@ -342,7 +342,7 @@
                                 <rect key="frame" x="0.0" y="28" width="343" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tY1-MB-u7p" id="aqQ-WJ-4cB">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="66.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="66F-ah-h6l">
