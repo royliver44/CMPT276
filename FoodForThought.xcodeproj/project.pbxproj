@@ -26,6 +26,7 @@
 		F632C40420E48DD0005D5805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F632C40220E48DD0005D5805 /* LaunchScreen.storyboard */; };
 		F632C40F20E48DD1005D5805 /* FoodForThoughtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C40E20E48DD1005D5805 /* FoodForThoughtTests.swift */; };
 		F632C41A20E48DD1005D5805 /* FoodForThoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C41920E48DD1005D5805 /* FoodForThoughtUITests.swift */; };
+		F67E8F2720F7EE95002BBD11 /* fftserver in Resources */ = {isa = PBXBuildFile; fileRef = F67E8F2620F7EE95002BBD11 /* fftserver */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		F632C41520E48DD1005D5805 /* FoodForThoughtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodForThoughtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F632C41920E48DD1005D5805 /* FoodForThoughtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodForThoughtUITests.swift; sourceTree = "<group>"; };
 		F632C41B20E48DD1005D5805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F67E8F2620F7EE95002BBD11 /* fftserver */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fftserver; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		F632C3EB20E48DD0005D5805 = {
 			isa = PBXGroup;
 			children = (
+				F67E8F2620F7EE95002BBD11 /* fftserver */,
 				F632C3F620E48DD0005D5805 /* FoodForThought */,
 				F632C40D20E48DD1005D5805 /* FoodForThoughtTests */,
 				F632C41820E48DD1005D5805 /* FoodForThoughtUITests */,
@@ -279,6 +282,7 @@
 			files = (
 				DFECD16E20ED70D000515451 /* PPAP.mp3 in Resources */,
 				F632C40420E48DD0005D5805 /* LaunchScreen.storyboard in Resources */,
+				F67E8F2720F7EE95002BBD11 /* fftserver in Resources */,
 				DFECD16F20ED70D000515451 /* October.mp3 in Resources */,
 				F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */,
 				DFECD16D20ED70D000515451 /* Kiss The Rain.mp3 in Resources */,
