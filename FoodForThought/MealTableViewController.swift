@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPickerViewDelegate, MealCellDelegate, XMLParserDelegate {
+ 
+    
     
     // MARK: Table view data source
     var scheduledMeals = [ScheduledMeal]()
@@ -66,16 +69,34 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
         tableView.reloadData()
     }
     
+    
+    // MEAL CELL DELEGATE METHODS
+    
+    // Checks that the entered name is a unique name among saved meals
+    func isNameUnique(mealName: String) -> Bool {
+        var uniqueName = true
+        print("in uniqueName")
+        for each in scheduledMeals {
+            if each.mealName == mealName {
+                print("meal names equal")
+                uniqueName = false
+                print(uniqueName)
+            }
+        }
+        print(uniqueName)
+        return uniqueName
+    }
+    
     // Update edited mealName
-    func nameWasEdited(_ mealNameTextField: UITextField, row: Int) {
-        scheduledMeals[row].mealName = mealNameTextField.text!
+    func nameWasEdited(_ mealName: String, row: Int) {
+        scheduledMeals[row].mealName = mealName
     }
     
     // Update edited mealTime
-    func timeWasEdited(_ mealTimeTextField: UITextField, row: Int) {
+    func timeWasEdited(_ mealTime: String, row: Int) {
         // Update data source with edited meal time value, then sort meals
         // by time to display in chronological order
-        scheduledMeals[row].mealTime = mealTimeTextField.text!
+        scheduledMeals[row].mealTime = mealTime
         scheduledMeals.sort {
             $0.mealTime < $1.mealTime
         }
@@ -94,6 +115,10 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
         tableView.reloadData()
     }
     
+    
+    
+    
+    
     func saveScheduledMeals() {
         // For each meal in scheduled meal, create an XML string and append it
         // to the growing master string; then append closing tag
@@ -110,6 +135,62 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
             } catch {
                 print(error)
             }
+    }
+    
+    // Sets notifications to warn user of impending start times of all scheduled meals
+    func setMealNotifications() {
+        // Remove previously saved notifications
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        // For every scheduled meal, create a notification trigger based on the meal time;
+        // schedule notification to repeat daily based on meal time trigger.
+        // Default warning time for notification is 30 minutes.
+        var identifier: String = ""
+        var mealAlertHour: Int = 0
+        var mealAlertMinute: Int = 0
+        let mealAlertWarningTime: Int = 30
+        for each in scheduledMeals {
+            // Create new notification based on current element in scheduledMeals
+            identifier = each.mealName
+            let content = UNMutableNotificationContent()
+            content.title = "Time to eat soon."
+            content.subtitle = "What are you hungry for?"
+            content.body = each.mealName + " is coming up in " + String(mealAlertWarningTime) + " minutes."
+            content.sound = UNNotificationSound.default()
+            content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+            
+            // Get hour and minute of meal for calculating notification time
+            var hourAndMinute = [Int]()
+            let timeArray = each.mealTime.split(separator: ":")
+            for each in timeArray {
+                if let intVal = Int(each) {
+                    hourAndMinute.append(intVal)
+                }
+            }
+
+            // Calculate notification time (mealAlertHour and mealAlertMinuted)
+            // based on meal time and how much of a warning is to be given
+            if hourAndMinute[1] < mealAlertWarningTime {
+                mealAlertHour = hourAndMinute[0] - 1
+                mealAlertMinute = 60 - (mealAlertWarningTime - hourAndMinute[1])
+            } else {
+                mealAlertHour = hourAndMinute[0]
+                mealAlertMinute = hourAndMinute[1] - mealAlertWarningTime
+            }
+            
+            // Create repeating notification trigger based on date/time
+            let date = Calendar.current.date(bySettingHour: mealAlertHour, minute: mealAlertMinute, second: 0, of: Date())!
+            let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+            
+            // Create notification request based on trigger and add to notification center
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: {(error) in
+                if let error = error {
+                    print("SOMETHING WENT WRONG")
+                }
+            })
+        }
     }
         
     // Creates an XML string from meal data

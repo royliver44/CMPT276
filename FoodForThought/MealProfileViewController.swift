@@ -61,12 +61,14 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveMealProfile(_ sender: UIButton) {
         self.mealTableViewController?.saveScheduledMeals()
+        self.mealTableViewController?.setMealNotifications()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.newMealName.delegate = self
         self.newMealTime.delegate = self
+        self.newMealDuration.delegate = self
         
         var timePickerView: UIDatePicker = UIDatePicker()
         timePickerView.datePickerMode = UIDatePickerMode.time
@@ -115,7 +117,11 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         textField.resignFirstResponder()
-        newMealNameWarning.text = ""
+        if textField == newMealName {
+            newMealNameWarning.text = ""
+        } else if textField == newMealDuration {
+            newMealDurationWarning.text = ""
+        }
         return false
     }
     
