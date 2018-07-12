@@ -1,0 +1,1 @@
+scp -i extras/secondPair.pem fftserver ec2-user@184.73.132.214:/home/ec2-user
