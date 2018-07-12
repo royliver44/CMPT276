@@ -10,7 +10,7 @@
 import UIKit
 import AVFoundation
 
-class musicController: UIViewController {
+class musicController: UIViewController , UITableViewDataSource, UITableViewDelegate{
     //set up audio player
     var audioPlayer = AVAudioPlayer()
     
@@ -20,10 +20,32 @@ class musicController: UIViewController {
     var itr = 0
     var timer = Timer()
     
+    //Playlist setups
+    @IBOutlet weak var Playlist: UITableView!
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return audioList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
+        let text = audioList[indexPath.row][0]
+        cell.textLabel?.text = text
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+
+        playByIndex(index: indexPath.row)
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        Playlist.dataSource = self
+        Playlist.delegate = self
         //Automatic Music list generation (mp3 only)
         let docsPath = Bundle.main.resourcePath!
 
@@ -79,8 +101,20 @@ class musicController: UIViewController {
     //@IBOutlet weak var musicCurrentDisplay: UILabel!
     
     //Music functions
+    func playByIndex(index: Int){
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[index][0], ofType: audioList[index][1])!))
+            itr = index
+            audioPlayer.prepareToPlay()
+            play()
+        }catch{
+            print(error)
+        }
+    }
     func play(){
         audioPlayer.play()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(lableUpdate), userInfo: nil, repeats: true)
         
          // todo: creat a thread that call next up on finish playing.(done)
         DispatchQueue.global(qos: .background).async {
@@ -132,7 +166,6 @@ class musicController: UIViewController {
     
     @IBAction func play(_ sender: UIButton) {
         play()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(lableUpdate), userInfo: nil, repeats: true)
         
     }
 
