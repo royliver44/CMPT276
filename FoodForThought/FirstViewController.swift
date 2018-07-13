@@ -18,13 +18,13 @@ class FirstViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        //        let center = UNUserNotificationCenter.current()
-//        center.getPendingNotificationRequests { (notifications) in
-//            print("Count: \(notifications.count)")
-//            for item in notifications {
-//                print(item.content)
-//            }
-//        }
+                let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests { (notifications) in
+            print("Count: \(notifications.count)")
+            for item in notifications {
+                print(item.content)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

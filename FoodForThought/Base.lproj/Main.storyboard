@@ -309,12 +309,43 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BkR-ef-kO7">
+                                <rect key="frame" x="310" y="386" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="setMealAlertStatus:" destination="uvD-sa-Kih" eventType="valueChanged" id="47T-ZR-Bbn"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upcoming meal alert:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WK-su-io6">
+                                <rect key="frame" x="16" y="391" width="164" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bbr-R0-GCy">
+                                <rect key="frame" x="191" y="387" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpu-kR-EOT">
+                                <rect key="frame" x="247" y="402" width="27" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="1vS-aQ-nQ2"/>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="mealAlert" destination="Bbr-R0-GCy" id="4G3-nb-UHP"/>
+                        <outlet property="mealAlertSwitch" destination="BkR-ef-kO7" id="Sak-41-Lcv"/>
                         <outlet property="mealTable" destination="3Fr-I3-1Jw" id="tIp-CZ-98h"/>
                         <outlet property="newMealDuration" destination="3jv-Op-HBQ" id="y5x-DB-iHf"/>
                         <outlet property="newMealDurationWarning" destination="8ZL-1G-iLu" id="nT1-mm-mdP"/>
@@ -327,7 +358,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBU-GT-CG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="x6G-7o-aMy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="-207"/>
+            <point key="canvasLocation" x="2277.5999999999999" y="-207.34632683658174"/>
         </scene>
         <!--Meal Table View Controller-->
         <scene sceneID="tnN-tr-z0l">
@@ -623,6 +654,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bHg-yx-KSw"/>
+        <segue reference="ufr-rE-svu"/>
     </inferredMetricsTieBreakers>
 </document>

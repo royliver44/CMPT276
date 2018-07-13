@@ -138,28 +138,38 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     }
     
     // Sets notifications to warn user of impending start times of all scheduled meals
-    func setMealNotifications() {
+    func setMealNotifications(mealAlert: String) {
         // Remove previously saved notifications
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         // For every scheduled meal, create a notification trigger based on the meal time;
         // schedule notification to repeat daily based on meal time trigger.
         // Default warning time for notification is 30 minutes.
-        var identifier: String = ""
+        var upcomingIdentifier: String = "upcoming"
+        var nowIdentifier: String = "now"
         var mealAlertHour: Int = 0
         var mealAlertMinute: Int = 0
         let mealAlertWarningTime: Int = 30
         for each in scheduledMeals {
-            // Create new notification based on current element in scheduledMeals
-            identifier = each.mealName
-            let content = UNMutableNotificationContent()
-            content.title = "Time to eat soon."
-            content.subtitle = "What are you hungry for?"
-            content.body = each.mealName + " is coming up in " + String(mealAlertWarningTime) + " minutes."
-            content.sound = UNNotificationSound.default()
-            content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+            // Create new notification based on current element in scheduledMeals, warning user a certain amount of time before meal
+            upcomingIdentifier.append(each.mealName)
+            let contentUpcoming = UNMutableNotificationContent()
+            contentUpcoming.title = "Time to eat soon."
+            contentUpcoming.subtitle = "What are you hungry for?"
+            contentUpcoming.body = each.mealName + " is coming up in " + String(mealAlertWarningTime) + " minutes."
+            contentUpcoming.sound = UNNotificationSound.default()
+            contentUpcoming.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
             
-            // Get hour and minute of meal for calculating notification time
+            // Create new notification based on current element in scheduledMeals, warning user when meal time arrives
+            nowIdentifier.append(each.mealName)
+            let contentNow = UNMutableNotificationContent()
+            contentNow.title = "Time to eat!"
+            contentNow.subtitle = "What are you having?"
+            contentNow.body = each.mealName + " is now."
+            contentNow.sound = UNNotificationSound.default()
+            contentNow.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+            
+            // Get hour and minute of meal for calculating advance notification time
             var hourAndMinute = [Int]()
             let timeArray = each.mealTime.split(separator: ":")
             for each in timeArray {
@@ -168,7 +178,7 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
                 }
             }
 
-            // Calculate notification time (mealAlertHour and mealAlertMinuted)
+            // Calculate advance notification time (mealAlertHour and mealAlertMinuted)
             // based on meal time and how much of a warning is to be given
             if hourAndMinute[1] < mealAlertWarningTime {
                 mealAlertHour = hourAndMinute[0] - 1
@@ -178,14 +188,27 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
                 mealAlertMinute = hourAndMinute[1] - mealAlertWarningTime
             }
             
-            // Create repeating notification trigger based on date/time
-            let date = Calendar.current.date(bySettingHour: mealAlertHour, minute: mealAlertMinute, second: 0, of: Date())!
-            let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+            // Create repeating notification triggers based on date/time;
+            // first trigger is to alert user of coming meal time,
+            // second trigger is to alert user of meal time that has arrived
+            let mealTimeIsComing = Calendar.current.date(bySettingHour: mealAlertHour, minute: mealAlertMinute, second: 0, of: Date())!
+            let triggerComingMealAlertDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: mealTimeIsComing)
+            let triggerUpcoming = UNCalendarNotificationTrigger(dateMatching: triggerComingMealAlertDaily, repeats: true)
             
-            // Create notification request based on trigger and add to notification center
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: {(error) in
+            let mealTimeIsNow = Calendar.current.date(bySettingHour: hourAndMinute[0], minute: hourAndMinute[1], second: 0, of: Date())!
+            let triggerPresentMealAlertDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: mealTimeIsNow)
+            let triggerNow = UNCalendarNotificationTrigger(dateMatching: triggerPresentMealAlertDaily, repeats: true)
+            
+            // Create notification requests based on triggers and add to notification center
+            let requestUpcoming = UNNotificationRequest(identifier: upcomingIdentifier, content: contentUpcoming, trigger: triggerUpcoming)
+            UNUserNotificationCenter.current().add(requestUpcoming, withCompletionHandler: {(error) in
+                if let error = error {
+                    print("SOMETHING WENT WRONG")
+                }
+            })
+            
+            let requestNow = UNNotificationRequest(identifier: nowIdentifier, content: contentNow, trigger: triggerNow)
+            UNUserNotificationCenter.current().add(requestNow, withCompletionHandler: {(error) in
                 if let error = error {
                     print("SOMETHING WENT WRONG")
                 }

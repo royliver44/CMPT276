@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealProfileViewController: UIViewController, UITextFieldDelegate {
+class MealProfileViewController: UIViewController, UITextFieldDelegate, XMLParserDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var mealTable: UIView!
@@ -18,10 +18,31 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var newMealNameWarning: UILabel!
     @IBOutlet weak var newMealTimeWarning: UILabel!
     @IBOutlet weak var newMealDurationWarning: UILabel!
+    @IBOutlet weak var mealAlertSwitch: UISwitch!
+    @IBOutlet weak var mealAlert: UITextField!
+    
     
     var mealTableViewController: MealTableViewController?
+    var mealAlertTime: Int = 0
+    var mealProfileURL: NSURL?
     
-    // MARK: Actions
+    
+     // MARK: Actions
+    
+    @IBAction func setMealAlertStatus(_ sender: UISwitch) {
+        if sender.isOn {
+            mealAlert.isEnabled = true
+            mealAlert.isHidden = false
+            mealAlertTime = Int(mealAlert.text!)!
+            print(mealAlertTime)
+        } else {
+            mealAlert.isEnabled = false
+            mealAlert.isHidden = true
+            mealAlertTime = 0
+            print(mealAlertTime)
+        }
+    }
+   
     // Adds a new meal to scheduled meals
     @IBAction func addMeal(_ sender: UIButton) {
         // If no value entered for meal name or time, tell
@@ -61,7 +82,7 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveMealProfile(_ sender: UIButton) {
         self.mealTableViewController?.saveScheduledMeals()
-        self.mealTableViewController?.setMealNotifications()
+        self.mealTableViewController?.setMealNotifications(mealAlert: mealAlert.text!)
     }
     
     override func viewDidLoad() {
@@ -69,7 +90,20 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
         self.newMealName.delegate = self
         self.newMealTime.delegate = self
         self.newMealDuration.delegate = self
+        self.mealAlert.delegate = self
         
+        // Access mealProfile.xml file from user's documents directory
+        var documentsDirectory: NSURL?
+        documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last! as NSURL
+        mealProfileURL = documentsDirectory!.appendingPathComponent("mealProfile.xml")! as NSURL
+        
+        if (mealProfileURL!.checkResourceIsReachableAndReturnError(nil)) {
+           
+        }else{
+            NSData().write(to: mealProfileURL! as URL, atomically:true)
+        }
+        
+        // Create time picker for newMealTime
         var timePickerView: UIDatePicker = UIDatePicker()
         timePickerView.datePickerMode = UIDatePickerMode.time
         
@@ -121,8 +155,20 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
             newMealNameWarning.text = ""
         } else if textField == newMealDuration {
             newMealDurationWarning.text = ""
+        } else if textField == mealAlert {
+            if textField.text == "" {
+                mealAlert.text = "0"
+            }
         }
         return false
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == newMealDuration || textField == mealAlert {
+            return string.rangeOfCharacter(from: CharacterSet.letters) == nil
+        } else {
+            return true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -132,4 +178,36 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+//    // PARSER DELEGATE FUNCTIONS
+//    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+//        eName = elementName
+//        if elementName == "meal" {
+//            mealName = String()
+//            mealTime = String()
+//            mealDuration = String()
+//        }
+//    }
+//
+//    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+//        if elementName == "meal" {
+//            let meal = ScheduledMeal(mealName: self.mealName, mealTime: self.mealTime, mealDuration: self.mealDuration)
+//            scheduledMeals.append(meal!)
+//        }
+//    }
+//
+//    func parser(_ parser: XMLParser, foundCharacters string: String) {
+//        let data = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+//        if (!data.isEmpty) {
+//            if eName == "name" {
+//                mealName += data
+//            } else if eName == "time" {
+//                mealTime += data
+//            } else if eName == "duration" {
+//                mealDuration += data
+//            }
+//        }
+//    }
+    
+    
 }
