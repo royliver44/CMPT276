@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */; };
 		DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */; };
 		DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */; };
 		DF707BC020F68ABF006B611A /* StartMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF707BBF20F68ABF006B611A /* StartMealViewController.swift */; };
@@ -18,6 +19,7 @@
 		DFAC230820F8017400DA24AA /* PPAP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230320F8017400DA24AA /* PPAP.mp3 */; };
 		DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */; };
 		DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */; };
+		DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */; };
 		DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */; };
 		DFECD17220ED732300515451 /* mealProfile.xml in Resources */ = {isa = PBXBuildFile; fileRef = DFECD17120ED732300515451 /* mealProfile.xml */; };
 		F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F720E48DD0005D5805 /* AppDelegate.swift */; };
@@ -48,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodForThought-Bridging-Header.h"; sourceTree = "<group>"; };
+		DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeal.swift; sourceTree = "<group>"; };
 		DF707BBF20F68ABF006B611A /* StartMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMealViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +64,7 @@
 		DFAC230320F8017400DA24AA /* PPAP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PPAP.mp3; sourceTree = "<group>"; };
 		DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Raise Your Voice.mp3"; sourceTree = "<group>"; };
 		DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Truth That You Leave.mp3"; sourceTree = "<group>"; };
+		DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ios_camera_app_icon.jpg; sourceTree = "<group>"; };
 		DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealProfileViewController.swift; sourceTree = "<group>"; };
 		DFECD17120ED732300515451 /* mealProfile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mealProfile.xml; sourceTree = "<group>"; };
 		F632C3F420E48DD0005D5805 /* FoodForThought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodForThought.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +120,14 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
+		DFCA432920F92A5800F32A1F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		F632C3EB20E48DD0005D5805 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +151,7 @@
 		F632C3F620E48DD0005D5805 /* FoodForThought */ = {
 			isa = PBXGroup;
 			children = (
+				DFCA432920F92A5800F32A1F /* Images */,
 				DFECD17120ED732300515451 /* mealProfile.xml */,
 				F632C3F720E48DD0005D5805 /* AppDelegate.swift */,
 				F632C3F920E48DD0005D5805 /* FirstViewController.swift */,
@@ -152,7 +167,10 @@
 				DFA39A1520E80AAE00E54064 /* MealTableViewController.swift */,
 				DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */,
 				DF86C5E620ED5FA4001F3778 /* MusicController.swift */,
+				DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */,
+				DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */,
 				DFAC230020F8017400DA24AA /* Music */,
+				DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */,
 			);
 			path = FoodForThought;
 			sourceTree = "<group>";
@@ -292,6 +310,7 @@
 				DFECD17220ED732300515451 /* mealProfile.xml in Resources */,
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
 				DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */,
+				DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +342,7 @@
 				F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */,
 				DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */,
 				DF86C5E720ED5FA5001F3778 /* MusicController.swift in Sources */,
+				DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */,
 				DFA39A1620E80AAE00E54064 /* MealTableViewController.swift in Sources */,
 				DF76E74120F6A85700AE5236 /* InMealViewController.swift in Sources */,
 				F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */,
@@ -492,15 +512,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB3D83U263;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodForThought/FoodForThought-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,15 +533,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DB3D83U263;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodForThought/FoodForThought-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

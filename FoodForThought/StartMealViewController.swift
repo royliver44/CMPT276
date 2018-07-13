@@ -20,12 +20,14 @@ class StartMealViewController: UIViewController {
         print(preMealHunger)
     }
     
+    @IBAction func startMeal(_ sender: UIButton) {
+        // save pre-meal info to meal journal entry
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let x = hungerSlider.frame.minX
         print(x)
-        
-
     }
 
     override func didReceiveMemoryWarning() {
