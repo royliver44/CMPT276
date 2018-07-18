@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D234B77020FF0020003C5AA8 /* JournalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */; };
+		D234B77220FF064C003C5AA8 /* DisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */; };
+		D234B77420FF067F003C5AA8 /* addItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77320FF067F003C5AA8 /* addItemViewController.swift */; };
+		D234B77620FF06D0003C5AA8 /* UpdateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */; };
 		DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */; };
 		DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */; };
 		DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */; };
@@ -50,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JournalModel.xcdatamodel; sourceTree = "<group>"; };
+		D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewController.swift; sourceTree = "<group>"; };
+		D234B77320FF067F003C5AA8 /* addItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addItemViewController.swift; sourceTree = "<group>"; };
+		D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateItemViewController.swift; sourceTree = "<group>"; };
 		DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodForThought-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 				F632C3F920E48DD0005D5805 /* FirstViewController.swift */,
 				F632C3FB20E48DD0005D5805 /* SecondViewController.swift */,
 				F632C3FD20E48DD0005D5805 /* Main.storyboard */,
+				D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */,
 				DF76E74020F6A85700AE5236 /* InMealViewController.swift */,
 				DF707BBF20F68ABF006B611A /* StartMealViewController.swift */,
 				DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */,
@@ -165,6 +174,9 @@
 				F632C40520E48DD0005D5805 /* Info.plist */,
 				DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */,
 				DFA39A1520E80AAE00E54064 /* MealTableViewController.swift */,
+				D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */,
+				D234B77320FF067F003C5AA8 /* addItemViewController.swift */,
+				D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */,
 				DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */,
 				DF86C5E620ED5FA4001F3778 /* MusicController.swift */,
 				DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */,
@@ -337,13 +349,17 @@
 			files = (
 				DF707BC020F68ABF006B611A /* StartMealViewController.swift in Sources */,
 				DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */,
+				D234B77220FF064C003C5AA8 /* DisplayTableViewController.swift in Sources */,
 				F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */,
+				D234B77620FF06D0003C5AA8 /* UpdateItemViewController.swift in Sources */,
 				DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */,
 				F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */,
 				DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */,
 				DF86C5E720ED5FA5001F3778 /* MusicController.swift in Sources */,
 				DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */,
+				D234B77420FF067F003C5AA8 /* addItemViewController.swift in Sources */,
 				DFA39A1620E80AAE00E54064 /* MealTableViewController.swift in Sources */,
+				D234B77020FF0020003C5AA8 /* JournalModel.xcdatamodeld in Sources */,
 				DF76E74120F6A85700AE5236 /* InMealViewController.swift in Sources */,
 				F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */,
 			);
@@ -448,7 +464,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -499,7 +516,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -514,16 +532,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DB3D83U263;
+				DEVELOPMENT_TEAM = 5DP7XW6B6J;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FoodForThought/FoodForThought-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -535,15 +554,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DB3D83U263;
+				DEVELOPMENT_TEAM = 5DP7XW6B6J;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FoodForThought/FoodForThought-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -585,8 +605,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FoodForThoughtUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThoughtUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -600,8 +622,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FoodForThoughtUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThoughtUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -650,6 +674,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */,
+			);
+			currentVersion = D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */;
+			path = JournalModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F632C3EC20E48DD0005D5805 /* Project object */;
 }
