@@ -22,7 +22,7 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func updateAction(_ sender: Any) {
-        
+        // updates journal entries with new items 
         guard let newEntry = entryText.text else  {
             return
         }

@@ -23,7 +23,7 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         createSearchBar()
-        
+        // Creates a search bar to allow users to search through journal entries
         self.tableView.estimatedRowHeight = 10
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -39,7 +39,7 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
         fetchData()
     }
     
-    
+    // Fetches Core Data
     func fetchData() {
         
         do {
@@ -82,6 +82,8 @@ extension DisplayTableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
+        // Allows users to delete journal entries,
+        // This is accessed through swiping left over a journal entry
         let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
             
@@ -94,13 +96,15 @@ extension DisplayTableViewController {
             
         }
         
+        // Allows users to share journal entries to social media
+        // Social media not yet implemented
         let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
             // delete item at indexPath
             
             print("Share")
             
         }
-        
+        // Creates the the icons for share and delete when a user swipes left over an entry
         delete.backgroundColor = UIColor(red: 0/255, green: 177/255, blue: 106/255, alpha: 1.0)
         share.backgroundColor = UIColor(red: 54/255, green: 215/255, blue: 183/255, alpha: 1.0)
         
@@ -117,6 +121,8 @@ extension DisplayTableViewController {
     }
     
     
+    // Creates a search bar in application for users to search through journal entries
+    
     func createSearchBar() {
         
         let searchBar = UISearchBar()
@@ -131,6 +137,7 @@ extension DisplayTableViewController {
     // This method updates filteredData based on the text in the Search Box
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        // Checks for journal entries with similar text
         if searchText.isEmpty {
             filteredData = items
             

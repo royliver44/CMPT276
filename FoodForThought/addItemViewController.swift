@@ -21,7 +21,7 @@ class addItemViewController: UIViewController, UITextViewDelegate {
         
         if (itemEntryTextView?.text.isEmpty)! || itemEntryTextView?.text == "Type anything..."{
             print("No Data")
-            
+            // checks if user has typed a jounral entry or not if not it prompts them to type something
             let alert = UIAlertController(title: "Please Type Something", message: "Your entry was left blank.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default) { action in
                 
@@ -30,7 +30,7 @@ class addItemViewController: UIViewController, UITextViewDelegate {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            
+            // Saves new entry
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             let newEntry = Item(context: context)
             newEntry.name = itemEntryTextView?.text!
@@ -56,7 +56,7 @@ class addItemViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // Checks if user is editing a journal entry
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
         textView.textColor = UIColor.black
