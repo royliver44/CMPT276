@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -684,6 +684,15 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUF-0n-h7k">
+                                <rect key="frame" x="96" y="568" width="183" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="login with spotify"/>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="8Kl-7u-t5k" eventType="touchUpInside" id="nL2-b2-Edu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ct2-1U-84E"/>
@@ -691,6 +700,7 @@
                     <tabBarItem key="tabBarItem" title="Music" id="IQq-Xt-J73"/>
                     <connections>
                         <outlet property="Playlist" destination="uki-ZB-Fuh" id="0Ru-sX-TVs"/>
+                        <outlet property="loginButton" destination="cUF-0n-h7k" id="Wlo-TK-QpN"/>
                         <outlet property="musicCurrentDisplay" destination="7vf-FK-xhp" id="iKn-4k-NqJ"/>
                         <outlet property="musicDragBar" destination="PME-4s-NdT" id="MA4-UM-5VE"/>
                         <outlet property="musicTimeDisplay" destination="lBd-ek-GJK" id="mAV-bK-XOr"/>
@@ -698,7 +708,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HW7-r0-kW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-434" y="857"/>
+            <point key="canvasLocation" x="-434.39999999999998" y="856.82158920539734"/>
         </scene>
         <!--Journal-->
         <scene sceneID="nDt-nl-WZT">

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C012FE7D20FFECE000611864 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */; };
+		C012FE7E20FFECE000611864 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */; };
+		C012FE7F20FFECE000611864 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */; };
 		D234B77020FF0020003C5AA8 /* JournalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */; };
 		D234B77220FF064C003C5AA8 /* DisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */; };
 		D234B77420FF067F003C5AA8 /* addItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77320FF067F003C5AA8 /* addItemViewController.swift */; };
@@ -54,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JournalModel.xcdatamodel; sourceTree = "<group>"; };
 		D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewController.swift; sourceTree = "<group>"; };
 		D234B77320FF067F003C5AA8 /* addItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addItemViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C012FE7D20FFECE000611864 /* SpotifyAuthentication.framework in Frameworks */,
+				C012FE7F20FFECE000611864 /* SpotifyMetadata.framework in Frameworks */,
+				C012FE7E20FFECE000611864 /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C012FE7920FFECC600611864 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */,
+				C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */,
+				C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		DFAC230020F8017400DA24AA /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +178,7 @@
 		F632C3F620E48DD0005D5805 /* FoodForThought */ = {
 			isa = PBXGroup;
 			children = (
+				C012FE7920FFECC600611864 /* Frameworks */,
 				DFCA432920F92A5800F32A1F /* Images */,
 				DFECD17120ED732300515451 /* mealProfile.xml */,
 				F632C3F720E48DD0005D5805 /* AppDelegate.swift */,
@@ -533,6 +553,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DP7XW6B6J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FoodForThought/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -555,6 +579,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DP7XW6B6J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FoodForThought/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
