@@ -45,10 +45,13 @@ class addItemViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         itemEntryTextView?.delegate = self
-        
+        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {

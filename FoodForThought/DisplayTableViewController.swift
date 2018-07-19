@@ -26,7 +26,7 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
         // Creates a search bar to allow users to search through journal entries
         self.tableView.estimatedRowHeight = 10
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     override func didReceiveMemoryWarning() {
