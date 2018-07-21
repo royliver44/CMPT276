@@ -10,6 +10,12 @@ import UIKit
 
 class InMealViewController: UIViewController {
 
+    func currentMeal(mealName: String, mealDuration: String) {
+        
+        print(mealName)
+        print(mealDuration)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -23,8 +29,6 @@ class InMealViewController: UIViewController {
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        print(hour)
-        print(minutes)
     }
 
     override func didReceiveMemoryWarning() {
