@@ -222,11 +222,158 @@ static void* TCFunc(void* param)
     0, (struct sockaddr*)&info->clientAddress, clientAddressLength);
 
   // print message from host
-  cout << "\tTC: receive buffer:" << endl << "-";
-  for (int i = 0; i < receiveBuffSize; i++){
+  cout << "\tTC: receive buffer:" << endl << "\t-";
+  for (int i = 0; i < receiveBuffSize; i++)
+  {
     cout << receiveBuffer[i];
   }
-  cout << "-" << endl;
+  cout << "\t-" << endl;
+
+  switch (receiveBuffer[0])
+  {
+    case 'C':
+      switch (receiveBuffer[1])
+        case 'u':
+          //cout << "Create User" << endl;
+          // add a row in Users
+
+          break;
+
+        case 'p'
+          //cout << "Create Post" << endl;
+          // add a row in Posts
+
+          // add a row in PostsByUser
+
+          break;
+
+        case 'r'
+          //cout << "Create Reply" << endl;
+          // add a row in Replies
+
+          // add a row in RepliesByUser
+
+          // add a row in RepliesByPost or RepliesByReplies
+
+          break;
+
+        case 'f':
+          //cout << "Create Follow" << endl;
+          // add a row in FollowersByUser
+
+          break;
+
+        case 's'
+          //cout << "Create Share" << endl;
+          // add a row in SharesByUser
+
+          break;
+
+        case 'l'
+          //cout << "Create Like" << endl;
+          // modify Post.likedby, Reply.dislikedby...
+
+          break;
+
+        default:
+          //cout << "Invalid Request" << endl;
+          break;
+      break;
+
+    case 'G':
+      switch (receiveBuffer[1])
+        case 'f':
+          //cout << "Get page: FEED" << endl;
+          break;
+
+        case 'l'
+          //cout << "Get page: Latest" << endl;
+          break;
+
+        case 'p'
+          //cout << "Get page: Popular" << endl;
+          break;
+
+        case 'n':
+          //cout << "Get page: Near" << endl;
+          break;
+
+        case 'm'
+          //cout << "Get page: MyPosts" << endl;
+          break;
+
+        case 'd'
+          //cout << "Get Post Details" << endl;
+          break;
+
+        case 'u':
+          //cout << "Get User Profile" << endl;
+          break;
+
+        default:
+          //cout << "Invalid Request" << endl;
+          break;
+      break;
+
+    case 'D':
+      switch (receiveBuffer[1])
+        case 'u':
+          //cout << "Delete User" << endl;
+          // add a row in Users
+
+          // remove any rows in FollowersByUser
+
+          break;
+
+        case 'p'
+          //cout << "Delete Post" << endl;
+          // remove a row in Posts
+
+          // remove a row in PostsByUser
+
+          // remove any rows in Replies
+
+          // remove any rows in RepliesByUser
+
+          // remove any rows in RepliesByPost and RepliesByReply
+
+          // remove any rows in SharesByUSer
+
+          break;
+
+        case 'r'
+          //cout << "Delete Reply" << endl;
+          // remove a row in Replies
+
+          // remove a row in RepliesByUser
+
+          // remove a row in RepliesByPost and RepliesByReplies
+
+          break;
+
+        case 'f':
+          //cout << "Delete Follow" << endl;
+          // remove a row in FollowersByUser
+
+          break;
+
+        case 's'
+          //cout << "Delete Share" << endl;
+          // remove a row in SharesByPost
+
+          break;
+
+        case 'l'
+          //cout << "Delete Like" << endl;
+          // modify Post.likedby, Reply.dislikedby...
+
+          break;
+
+        default:
+          //cout << "Invalid Request" << endl;
+          break;
+      break;
+  }
 
   // exit upon client request
   if (strcmp(receiveBuffer, "STOPSTOPSTOP\n") == 0)
