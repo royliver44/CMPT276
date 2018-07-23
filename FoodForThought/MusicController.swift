@@ -4,7 +4,7 @@
 //  FoodForThought
 //
 //  Created by Jordan Ehrenholz on 6/27/18.
-//  Copyright © 2018 Jordan Ehrenholz. All rights reserved.
+//  Copyright © 2018 Food For Thought All rights reserved.
 //
 
 import UIKit

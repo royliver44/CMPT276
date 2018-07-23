@@ -287,9 +287,10 @@
 		F632C3EC20E48DD0005D5805 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Jordan Ehrenholz";
+				ORGANIZATIONNAME = "Food For Thought";
 				TargetAttributes = {
 					F632C3F320E48DD0005D5805 = {
 						CreatedOnToolsVersion = 9.2;

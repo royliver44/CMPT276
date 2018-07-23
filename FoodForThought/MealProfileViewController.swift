@@ -3,7 +3,7 @@
 //  FoodForThought
 //
 //  Created by Andy Adams on 6/28/18.
-//  Copyright © 2018 Jordan Ehrenholz. All rights reserved.
+//  Copyright © 2018 Food For Thought All rights reserved.
 //
 
 import UIKit
