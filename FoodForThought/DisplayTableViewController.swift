@@ -27,6 +27,9 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.estimatedRowHeight = 10
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.hidesBackButton = true
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,6 +48,12 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
         do {
             items = try context.fetch(Item.fetchRequest())
             filteredData = items
+//            for each in filteredData {
+//                self.context.delete(each)
+//                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+//            }
+            
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -60,9 +69,12 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
 extension DisplayTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JournalTableViewCell", for: indexPath) as! JournalTableViewCell
         
-        cell.textLabel?.text = filteredData[indexPath.row].name
+        cell.entryTitle.text = filteredData[indexPath.row].name
+        cell.entryDate.text = filteredData[indexPath.row].date!
+        
+        
         
         return cell
     }

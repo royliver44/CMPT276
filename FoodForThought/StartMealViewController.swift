@@ -7,43 +7,87 @@
 //
 
 import UIKit
+import CoreData
+import Foundation
 
-class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    var entryDate = String()
     var preMealHunger: Int = 0
+    var preMealFocus: Int = 0
+    var preMealCalmness: Int = 0
+    var preMealHappiness: Int = 0
     var mealProfileURL: NSURL?
     var mealNames = [String]()
-    var mealDurations = [String]()
+    var mealTimes = [String]()
     var currentMeal = String()
     var inMealViewController: InMealViewController?
-    
-    var mealInfo: [String: String] = [:]
+    var imagePicker: UIImagePickerController!
+    var mealDurationInfo: [String: String] = [:]
+    var mealTimeInfo: [String: String] = [:]
 
     
     // MARK: Outlets
     @IBOutlet weak var hungerSlider: UISlider!
+    @IBOutlet var focusSlider: UISlider!
     @IBOutlet var mealPicker: UIPickerView!
+    @IBOutlet var calmnessSlider: UISlider!
+    @IBOutlet var happinessSlider: UISlider!
+    
     
 
     // MARK: Actions
-    @IBAction func hungerValueChanged(_ sender: UISlider) {
-        sender.setValue(Float(lroundf(hungerSlider.value)), animated: true)
-        preMealHunger = lroundf(hungerSlider.value)
-        print(preMealHunger)
+    @IBAction func takePhoto(_ sender: UIButton) {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        sender.setValue(Float(lroundf(sender.value)), animated: true)
+        //preMealHunger = lroundf(sender.value)
+        //print(preMealHunger)
+        
+        switch sender {
+        case hungerSlider:
+            preMealHunger = lroundf(sender.value)
+            print(preMealHunger)
+        case focusSlider:
+            preMealFocus = lroundf(sender.value)
+            print(preMealFocus)
+        case calmnessSlider:
+            preMealCalmness = lroundf(sender.value)
+            print(preMealCalmness)
+        case happinessSlider:
+            preMealHappiness = lroundf(sender.value)
+            print(preMealHappiness)
+        default:
+            print("default")
+        }
+        
     }
     
     @IBAction func startMeal(_ sender: UIButton) {
         // save pre-meal info to meal journal entry
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let newEntry = Item(context: context)
         
-        inMealViewController?.currentMeal(mealName: currentMeal, mealDuration: mealInfo[currentMeal]!)
+        newEntry.name = currentMeal
+        newEntry.date = entryDate
+        newEntry.scheduledTime = mealTimeInfo[currentMeal]
+        newEntry.preMealHunger = Int32(self.preMealHunger)
+        newEntry.preMealFocus = Int32(self.preMealFocus)
+        newEntry.scheduledDuration = Int32(mealDurationInfo[currentMeal]!)!
+        
+        inMealViewController?.currentMeal(mealItem: newEntry)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mealPicker.delegate = self
         mealPicker.dataSource = self
-      
-        
         
         var xmlData: Data
         var xmlDoc: GDataXMLDocument
@@ -51,8 +95,8 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         var meal: [GDataXMLElement]
         var mealDuration: [GDataXMLElement]
         var mealName: [GDataXMLElement]
+        var mealTime: [GDataXMLElement]
        
-        
         // Access mealProfile.xml file from user's documents directory
         var documentsDirectory: NSURL?
         documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last! as NSURL
@@ -78,9 +122,10 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 for each in meal {
                     mealName = each.elements(forName: "name") as! [GDataXMLElement]
                     mealDuration = each.elements(forName: "duration") as! [GDataXMLElement]
+                    mealTime = each.elements(forName: "time") as! [GDataXMLElement]
                     mealNames.append(mealName[0].stringValue())
-                    mealDurations.append(mealDuration[0].stringValue())
-                    mealInfo[mealName[0].stringValue()] = mealDuration[0].stringValue()
+                    mealDurationInfo[mealName[0].stringValue()] = mealDuration[0].stringValue()
+                    mealTimeInfo[mealName[0].stringValue()] = mealTime[0].stringValue()
                 }
             }
         } catch {
@@ -89,14 +134,20 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         currentMeal = mealNames[0]
         
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        entryDate = "\(month)/\(day)/\(year), \(hour):\(minute)"
+        
     }
     
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startMeal" {
@@ -106,6 +157,10 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        imagePicker.dismiss(animated: true, completion: nil)
+//        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
 
     // PICKER VIEW DELEGATE METHODS
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -123,15 +178,4 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentMeal = mealNames[row]
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

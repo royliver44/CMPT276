@@ -27,6 +27,8 @@
 		DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */; };
 		DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */; };
 		DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */; };
+		DFDB12EC2107BE990055C0A2 /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */; };
+		DFDB12EE2107CE8E0055C0A2 /* PostMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */; };
 		DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */; };
 		DFECD17220ED732300515451 /* mealProfile.xml in Resources */ = {isa = PBXBuildFile; fileRef = DFECD17120ED732300515451 /* mealProfile.xml */; };
 		F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F720E48DD0005D5805 /* AppDelegate.swift */; };
@@ -79,6 +81,8 @@
 		DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Raise Your Voice.mp3"; sourceTree = "<group>"; };
 		DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Truth That You Leave.mp3"; sourceTree = "<group>"; };
 		DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ios_camera_app_icon.jpg; sourceTree = "<group>"; };
+		DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
+		DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMealViewController.swift; sourceTree = "<group>"; };
 		DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealProfileViewController.swift; sourceTree = "<group>"; };
 		DFECD17120ED732300515451 /* mealProfile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mealProfile.xml; sourceTree = "<group>"; };
 		F632C3F420E48DD0005D5805 /* FoodForThought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodForThought.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +189,8 @@
 				F632C3F920E48DD0005D5805 /* FirstViewController.swift */,
 				F632C3FB20E48DD0005D5805 /* SecondViewController.swift */,
 				F632C3FD20E48DD0005D5805 /* Main.storyboard */,
+				DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */,
+				DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */,
 				D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */,
 				DF76E74020F6A85700AE5236 /* InMealViewController.swift */,
 				DF707BBF20F68ABF006B611A /* StartMealViewController.swift */,
@@ -371,9 +377,11 @@
 				DF707BC020F68ABF006B611A /* StartMealViewController.swift in Sources */,
 				DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */,
 				D234B77220FF064C003C5AA8 /* DisplayTableViewController.swift in Sources */,
+				DFDB12EC2107BE990055C0A2 /* JournalTableViewCell.swift in Sources */,
 				F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */,
 				D234B77620FF06D0003C5AA8 /* UpdateItemViewController.swift in Sources */,
 				DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */,
+				DFDB12EE2107CE8E0055C0A2 /* PostMealViewController.swift in Sources */,
 				F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */,
 				DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */,
 				DF86C5E720ED5FA5001F3778 /* MusicController.swift in Sources */,

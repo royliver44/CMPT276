@@ -12,11 +12,15 @@ import Foundation
 
 class addItemViewController: UIViewController, UITextViewDelegate {
     
+    var entryDate = String()
+    
     @IBOutlet var itemEntryTextView: UITextView?
+    @IBOutlet var mealName: UITextField!
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func saveContact(_ sender: Any) {
         
         if (itemEntryTextView?.text.isEmpty)! || itemEntryTextView?.text == "Type anything..."{
@@ -33,10 +37,15 @@ class addItemViewController: UIViewController, UITextViewDelegate {
             // Saves new entry
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             let newEntry = Item(context: context)
-            newEntry.name = itemEntryTextView?.text!
+            if mealName.text != "" {
+                newEntry.name = mealName.text
+            } else {
+                newEntry.name = "Untitled"
+            }
             
+            newEntry.entryText = itemEntryTextView?.text!
+            newEntry.date = entryDate
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
             dismiss(animated: true, completion: nil)
             
         }
@@ -47,7 +56,16 @@ class addItemViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         itemEntryTextView?.delegate = self
         self.navigationController?.isNavigationBarHidden = true
-        // Do any additional setup after loading the view.
+        self.navigationItem.hidesBackButton = true
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        entryDate = "\(month)/\(day)/\(year), \(hour):\(minute)"
     }
     
     override func viewWillAppear(_ animated: Bool) {
