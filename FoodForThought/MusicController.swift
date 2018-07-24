@@ -48,14 +48,37 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
     // Initialzed in either updateAfterFirstLogin: (if first time login) or in viewDidLoad (when there is a check for a session object in User Defaults
     var player: SPTAudioStreamingController?
     var loginUrl: URL?
+    var loggedin = false
     // end spotify integration Variables
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func loginBtnPressed(_ sender: Any) {
-        if UIApplication.shared.openURL(loginUrl!) {
-            if auth.canHandle(auth.redirectURL) {
-                // To do - build in error handling
+        // check if loggedin, if yes, then switch the functionality of the button.
+        if player != nil{
+            if !(loggedin) {
+            
+                if UIApplication.shared.openURL(loginUrl!) {
+                    if auth.canHandle(auth.redirectURL) {
+                    }
+                }
+                audioStreamingDidLogin(player)
+                loggedin = true
             }
+            else{ // if logged in, press button will log out.
+                
+                for _ in 1...(audioList.count - AudioListCount) {
+                    audioList.popLast()
+                }
+                Playlist.reloadData()
+                loginButton.setTitle("Login with Spotify", for: UIControlState.normal)
+                loggedin = false
+            }
+        }else{
+            if UIApplication.shared.openURL(loginUrl!) {
+                if auth.canHandle(auth.redirectURL) {
+                }
+            }
+            loggedin = true
         }
     }
     func setup () {
@@ -80,7 +103,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
     }
     
     @objc func updateAfterFirstLogin () {
-        loginButton.isHidden = true
+        
         let userDefaults = UserDefaults.standard
         
         if let sessionObj:AnyObject = userDefaults.object(forKey: "SpotifySession") as AnyObject? {
@@ -90,7 +113,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
             
             self.session = firstTimeSession
             initializaPlayer(authSession: session)
-            self.loginButton.isHidden = true
+            
             // self.loadingLabel.isHidden = false
             
         }
@@ -107,6 +130,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                     
                     for i in 0...itr {
                     let feat_playlist = featured_playlist.items[i] as! SPTPartialPlaylist
+                        
                     // add label to audio list
                     let label = "Featured \(self.audioList.count - self.AudioListCount + 1): \(feat_playlist.name!) (\(feat_playlist.trackCount) Tracks)"
                     self.audioList.append([label,feat_playlist.playableUri.absoluteString])
@@ -127,6 +151,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         
     }
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
+        loginButton.setTitle("Log out from Spotify", for: UIControlState.normal)
         // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
         print("logged in")
         if( audioPlayer.isPlaying){
