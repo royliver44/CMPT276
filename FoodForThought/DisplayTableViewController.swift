@@ -48,11 +48,6 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
         do {
             items = try context.fetch(Item.fetchRequest())
             filteredData = items
-//            for each in filteredData {
-//                self.context.delete(each)
-//                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-//            }
-            
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

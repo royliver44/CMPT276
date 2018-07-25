@@ -10,6 +10,7 @@ import UIKit
 
 class JournalTableViewCell: UITableViewCell {
 
+
     @IBOutlet var entryTitle: UILabel!
     @IBOutlet var entryDate: UILabel!
     

@@ -27,6 +27,7 @@
 		DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */; };
 		DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */; };
 		DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */; };
+		DFD75BE12109081D008451DF /* mindfulEatingPrompts.txt in Resources */ = {isa = PBXBuildFile; fileRef = DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */; };
 		DFDB12EC2107BE990055C0A2 /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */; };
 		DFDB12EE2107CE8E0055C0A2 /* PostMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */; };
 		DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */; };
@@ -81,6 +82,7 @@
 		DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Raise Your Voice.mp3"; sourceTree = "<group>"; };
 		DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Truth That You Leave.mp3"; sourceTree = "<group>"; };
 		DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ios_camera_app_icon.jpg; sourceTree = "<group>"; };
+		DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mindfulEatingPrompts.txt; sourceTree = "<group>"; };
 		DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
 		DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMealViewController.swift; sourceTree = "<group>"; };
 		DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealProfileViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				DF86C5E620ED5FA4001F3778 /* MusicController.swift */,
 				DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */,
 				DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */,
+				DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */,
 				DFAC230020F8017400DA24AA /* Music */,
 				DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */,
 			);
@@ -350,6 +353,7 @@
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
 				DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */,
 				DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */,
+				DFD75BE12109081D008451DF /* mindfulEatingPrompts.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
