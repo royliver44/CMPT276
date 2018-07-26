@@ -819,6 +819,7 @@
                     <tabBarItem key="tabBarItem" title="Music" id="IQq-Xt-J73"/>
                     <connections>
                         <outlet property="Playlist" destination="uki-ZB-Fuh" id="0Ru-sX-TVs"/>
+                        <outlet property="currentNameLabel" destination="C4m-nb-A6V" id="jME-i2-phs"/>
                         <outlet property="loginButton" destination="cUF-0n-h7k" id="Wlo-TK-QpN"/>
                         <outlet property="musicCurrentDisplay" destination="7vf-FK-xhp" id="iKn-4k-NqJ"/>
                         <outlet property="musicDragBar" destination="PME-4s-NdT" id="MA4-UM-5VE"/>
