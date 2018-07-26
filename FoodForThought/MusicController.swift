@@ -73,6 +73,19 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                 for _ in 1...(audioList.count - AudioListCount) {
                     audioList.popLast()
                 }
+                if playerFlag == 0{
+                    if audioPlayer.isPlaying{
+                        audioPlayer.pause()
+                    }
+                }else{
+                    if player?.playbackState != nil {
+                        if (player?.playbackState.isPlaying)! {
+                            player?.setIsPlaying(false, callback: nil)
+                        }
+                    }
+                }
+                playerFlag = 0
+                next()
                 Playlist.reloadData()
                 loginButton.setTitle("Login with Spotify", for: UIControlState.normal)
                 loggedin = false
