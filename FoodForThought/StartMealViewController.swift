@@ -33,6 +33,7 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var mealPicker: UIPickerView!
     @IBOutlet var calmnessSlider: UISlider!
     @IBOutlet var happinessSlider: UISlider!
+    @IBOutlet var unscheduledMealName: UITextField!
     
     
 
@@ -74,12 +75,27 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let newEntry = Item(context: context)
         
-        newEntry.name = currentMeal
+        if currentMeal != "Other" {
+            newEntry.mealType = "scheduled"
+            newEntry.name = currentMeal
+            newEntry.scheduledTime = mealTimeInfo[currentMeal]
+            newEntry.scheduledDuration = Int32(mealDurationInfo[currentMeal]!)!
+        } else {
+            newEntry.mealType = "unscheduled"
+            newEntry.scheduledTime = "none"
+            newEntry.scheduledDuration = 0
+            if unscheduledMealName.text != "" {
+                newEntry.name = unscheduledMealName.text
+            } else {
+                newEntry.name = "Untitled"
+            }
+        }
+        
         newEntry.date = entryDate
-        newEntry.scheduledTime = mealTimeInfo[currentMeal]
         newEntry.preMealHunger = Int32(self.preMealHunger)
         newEntry.preMealFocus = Int32(self.preMealFocus)
-        newEntry.scheduledDuration = Int32(mealDurationInfo[currentMeal]!)!
+        newEntry.preMealCalmness = Int32(self.preMealCalmness)
+        newEntry.preMealHappiness = Int32(self.preMealHappiness)
         
         inMealViewController?.currentMeal(mealItem: newEntry)
     }
@@ -131,8 +147,16 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         } catch {
             print(error)
         }
-        
+        mealNames.append("Other")
         currentMeal = mealNames[0]
+        
+        if currentMeal != "Other" {
+            unscheduledMealName.isHidden = true
+            unscheduledMealName.isEnabled = false
+        } else {
+            unscheduledMealName.isHidden = false
+            unscheduledMealName.isEnabled = true
+        }
         
         let date = Date()
         let calendar = Calendar.current
@@ -159,7 +183,8 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         imagePicker.dismiss(animated: true, completion: nil)
-//        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        // do something here to get image from camera
+//        "where/how we store the photo" = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
 
     // PICKER VIEW DELEGATE METHODS
@@ -177,5 +202,13 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentMeal = mealNames[row]
+        
+        if currentMeal != "Other" {
+            unscheduledMealName.isHidden = true
+            unscheduledMealName.isEnabled = false
+        } else {
+            unscheduledMealName.isHidden = false
+            unscheduledMealName.isEnabled = true
+        }
     }
 }

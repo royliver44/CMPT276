@@ -27,7 +27,7 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
             return
         }
         
-        item.name = newEntry
+        item.entryText = newEntry
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         dismiss(animated: true, completion: nil)
@@ -55,7 +55,7 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
     
     func configureEntryData(entry: Item) {
         
-        guard let text = entry.name else {
+        guard let text = entry.entryText else {
             return
         }
         

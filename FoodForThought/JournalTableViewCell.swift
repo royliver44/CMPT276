@@ -13,6 +13,7 @@ class JournalTableViewCell: UITableViewCell {
 
     @IBOutlet var entryTitle: UILabel!
     @IBOutlet var entryDate: UILabel!
+    @IBOutlet var entryText: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

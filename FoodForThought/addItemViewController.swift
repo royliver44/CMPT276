@@ -45,6 +45,7 @@ class addItemViewController: UIViewController, UITextViewDelegate {
             
             newEntry.entryText = itemEntryTextView?.text!
             newEntry.date = entryDate
+            newEntry.mealType = "none"
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             dismiss(animated: true, completion: nil)
             

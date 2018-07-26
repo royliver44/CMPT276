@@ -157,7 +157,7 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     func saveScheduledMeals() {
         // For each meal in scheduled meal, create an XML string and append it
         // to the growing master string; then append closing tag
-        var masterXMLString: String = "<?xml version=\"1.0\"?>\n<profile><meals>\n"
+        var masterXMLString: String = "<?xml version=\"1.0\"?><profile><meals>"
         for each in scheduledMeals {
             masterXMLString.append(createXMLString(meal: each))
         }
@@ -261,13 +261,13 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
     
     // Creates an XML string from meal data
     private func createXMLString(meal: ScheduledMeal) -> String {
-        var mealXML: String = "<meal>\n<name>"
+        var mealXML: String = "<meal><name>"
         mealXML.append(meal.mealName)
-        mealXML.append("</name>\n<time>")
+        mealXML.append("</name><time>")
         mealXML.append(meal.mealTime)
-        mealXML.append("</time>\n<duration>")
+        mealXML.append("</time><duration>")
         mealXML.append(meal.mealDuration)
-        mealXML.append("</duration>\n</meal>\n")
+        mealXML.append("</duration></meal>")
         return mealXML
     }
     

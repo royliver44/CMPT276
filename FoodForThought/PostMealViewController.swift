@@ -26,8 +26,10 @@ class PostMealViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var journalEntry: UITextView!
     
     @IBAction func saveMeal(_ sender: UIButton) {
+        journalEntry.endEditing(true)
         mealJournalItem.postMealHunger = Int32(self.postMealHunger)
         mealJournalItem.entryText = journalEntry.text
+        print(journalEntry.text)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
@@ -77,6 +79,7 @@ class PostMealViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        print("end editing")
         if journalEntry.text == "" {
             journalEntry.text = journalEntryPlaceholder
             journalEntry.textColor = UIColor.lightGray
