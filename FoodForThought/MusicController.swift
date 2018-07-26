@@ -23,6 +23,8 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
     var timer = Timer()
     
     //Playlist setups
+    @IBOutlet var currentNameLabel: UILabel!
+    
     @IBOutlet weak var Playlist: UITableView!
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -43,6 +45,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
     }
 
     //spotify integration Variables
+    var trackArtistName = ""
     var auth = SPTAuth.defaultInstance()!
     var session:SPTSession!
     // Initialzed in either updateAfterFirstLogin: (if first time login) or in viewDidLoad (when there is a check for a session object in User Defaults
@@ -61,6 +64,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                     if auth.canHandle(auth.redirectURL) {
                     }
                 }
+                sleep(1)
                 audioStreamingDidLogin(player)
                 loggedin = true
             }
@@ -87,7 +91,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         let clientID = "8ac1120b0a0d413eb1151ba09e64b7f1" // put your client ID here
         auth.redirectURL     = URL(string: redirectURL)
         auth.clientID        = clientID
-        auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope, SPTAuthUserLibraryReadScope]
+        auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope, SPTAuthPlaylistModifyPrivateScope, SPTAuthUserReadPrivateScope]
         loginUrl = auth.spotifyWebAuthenticationURL()
     }
     
@@ -133,7 +137,8 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                         
                     // add label to audio list
                     let label = "Featured \(self.audioList.count - self.AudioListCount + 1): \(feat_playlist.name!) (\(feat_playlist.trackCount) Tracks)"
-                    self.audioList.append([label,feat_playlist.playableUri.absoluteString])
+                    self.audioList.append([label, feat_playlist.playableUri.absoluteString])
+                        print(feat_playlist.playableUri.absoluteString)
                     }
                     flag = true
                     
@@ -227,7 +232,65 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
     //@IBOutlet weak var musicCurrentDisplay: UILabel!
     
     //Music functions
+    func getTrackName(url : String) {
+        var str = ""
+        do{
+            let currentTrack = try SPTTrack.createRequest(forTrack: URL(string: url), withAccessToken: session.accessToken, market: "CA")
+            let task2 = URLSession.shared.dataTask(with: currentTrack, completionHandler: {(data,response,error) in
+                do{
+                    
+                    //print(String(data: data!, encoding: String.Encoding.utf8)!)
+                    let track = try SPTTrack.init(from: data, with: response)
+                    
+                    print(track)
+                    //print(track.name)
+                    //self.currentNameLabel.text = track.name
+                }catch{// dont know why but above SPTTrack.init seeems to have bugs, and not build the object.
+                    let jsonTrack = (String(data: data!, encoding: String.Encoding.utf8)!)
+                    print(jsonTrack)
+                    var artist_index = 0
+                    var track_index = 1
+                    // read through file to find names
+                    for i in 0...jsonTrack.count - 4{
+                        let index = jsonTrack.index(jsonTrack.startIndex, offsetBy: i)
+                        let index2 = jsonTrack.index(jsonTrack.startIndex, offsetBy: i+4)
+                        // by observation, the first name tag is artist name, and the last appearance of name tag is track name
+                        if jsonTrack[index..<index2] == "name" {
+                            if artist_index == 0{
+                                artist_index = i + 9
+                                print(jsonTrack[index])
+                            }
+                            if track_index != 0{
+                                track_index = i + 9
+                            }
+                        }
+                    }
+                    //acquired index, now just get the names
+                    var itr = 0
+                    var artistName = ""
+                    var trackName = ""
+                    while( jsonTrack[jsonTrack.index(jsonTrack.startIndex, offsetBy: artist_index + itr)] != "\""){
+                        artistName.append(jsonTrack[jsonTrack.index(jsonTrack.startIndex, offsetBy: artist_index + itr)])
+                        itr += 1
+                    }
+                    itr = 0
+                    while( jsonTrack[jsonTrack.index(jsonTrack.startIndex, offsetBy: track_index + itr)] != "\""){
+                        trackName.append(jsonTrack[jsonTrack.index(jsonTrack.startIndex, offsetBy: track_index + itr)])
+                        itr += 1
+                    }
+                    str = "\(trackName) - \(artistName)"
+                    self.trackArtistName = str
+                }
+            })
+            task2.resume()
+            
+        }catch{
+            print("error requesting track")
+        
+        }
+    }
     func playByIndex(index: Int){
+        currentNameLabel.adjustsFontForContentSizeCategory = true
             //pause any playing music
             if playerFlag == 0{
                 if audioPlayer.isPlaying{
@@ -240,15 +303,16 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                     }
                 }
             }
+        
          if(audioList.count - (index) > audioList.count - AudioListCount){
             //if selected file is from AVAudioPlayer
             do{
-
                 //play
                 playerFlag = 0
                 audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[index][0], ofType: audioList[index][1])!))
                 itr = index
                 audioPlayer.prepareToPlay()
+                currentNameLabel.text = "\(audioList[index][0])"
                 play()
             }catch{
                 print(error)
@@ -258,6 +322,11 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
             playerFlag = 1
             player?.playSpotifyURI(audioList[index][1], startingWith: 0, startingWithPosition: 0, callback: nil)
             play() // for enitiating label update
+            sleep(1)
+            let url = (player?.metadata!.currentTrack!.uri)!
+            getTrackName(url: url)
+            sleep(1)
+            currentNameLabel.text = "\(trackArtistName)"
         }
     }
     func play(){
@@ -326,15 +395,23 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
     func next(){
         if playerFlag == 0 {
             do{
-                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[(itr+1) % audioList.count][0], ofType: audioList[(itr+1) % audioList.count][1])!))
+                
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[(itr+1) % AudioListCount][0], ofType: audioList[(itr+1) % AudioListCount][1])!))
                 itr += 1
                 audioPlayer.prepareToPlay()
                 play()
+                currentNameLabel.text = "\(audioList[itr % AudioListCount][0])"
+                
             }catch{
                 print(error)
             }
         }else{
             player?.skipNext(nil)
+            sleep(1)
+            let url = (player?.metadata!.currentTrack!.uri)!
+            getTrackName(url: url)
+            sleep(1)
+            currentNameLabel.text = "\(trackArtistName)"
         }
     }
     
@@ -363,26 +440,9 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                 }
             }
         }
+        //URL(string: (player?.metadata!.currentTrack!.uri)!)
         
-        // test, delete after
-        /*
-        do{
-        let user_music = try SPTYourMusic.createRequestForCurrentUsersSavedTracks(withAccessToken: session.accessToken)
-        let task = URLSession.shared.dataTask(with: user_music, completionHandler: {(data,response,error) in
-            do{
-                let user_playlist = try SPTPlaylistList.init(from: data!, with: response)
-                //print(user_playlist.items)
-            }catch{
-                print("error in parsing data from Spotify")
-            }
-        })
-            
-        task.resume()
- 
-        }catch {
-            print("error")
-        }
-           */
+
         
     }
     
@@ -407,16 +467,23 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
     @IBAction func prev(_ sender: UIButton){
         if playerFlag == 0 {
             do{
-                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[(itr-1) % audioList.count][0], ofType: audioList[(itr-1) % audioList.count][1])!))
-                itr -= 1
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[(itr + AudioListCount - 1) % AudioListCount][0], ofType: audioList[(itr + AudioListCount - 1) % AudioListCount][1])!))
+                itr += AudioListCount - 1
                 audioPlayer.prepareToPlay()
                 play()
+                currentNameLabel.text = "\(audioList[itr % AudioListCount][0])"
             }catch{
                 print(error)
             }
         }else{
             //todo
             player?.skipPrevious(nil)
+            sleep(1)
+            
+            let url = (player?.metadata!.currentTrack!.uri)!
+            getTrackName(url: url)
+            sleep(1)
+            currentNameLabel.text = "\(trackArtistName)"
         }
         
     }
