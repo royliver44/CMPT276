@@ -43,11 +43,17 @@ class InMealViewController: UIViewController {
             print(err)
         }
         
-        timeRemaining.text = "\(mealDuration) mins"
-        updateMessage()
+        // If the meal is scheduled with a set duration, display remaining time and create timer to count down the time
+        if mealDuration != 0 {
+            // Create meal timer to show remaining meal time
+            mealTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(updateTime)), userInfo: nil, repeats: true)
+            timeRemaining.text = "\(mealDuration) mins"
+        } else {
+            timeRemaining.text = "No time set"
+        }
         
-        // Create meal timer to show remaining meal time
-        mealTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: (#selector(updateTime)), userInfo: nil, repeats: true)
+        // Display mindful eating prompt
+        updateMessage()
         
         // Create message timer to display mindful eating prompts
         let messageInterval = 60 * 5

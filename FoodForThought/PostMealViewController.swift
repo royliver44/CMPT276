@@ -28,6 +28,9 @@ class PostMealViewController: UIViewController, UITextViewDelegate {
     @IBAction func saveMeal(_ sender: UIButton) {
         journalEntry.endEditing(true)
         mealJournalItem.postMealHunger = Int32(self.postMealHunger)
+        mealJournalItem.postMealFocus = Int32(self.postMealFocus)
+        mealJournalItem.postMealCalmness = Int32(self.postMealCalmness)
+        mealJournalItem.postMealHappiness = Int32(self.postMealHappiness)
         mealJournalItem.entryText = journalEntry.text
         print(journalEntry.text)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

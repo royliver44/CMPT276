@@ -16,6 +16,7 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
     var item: Item!
     
     @IBOutlet weak var entryText: UITextView!
+    @IBOutlet var sliderData: UITextView!
     
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -43,7 +44,7 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
         entryText!.becomeFirstResponder()
         configureEntryData(entry: item)
         
-        print(item)
+        sliderData.isEditable = false
         
     }
     
@@ -60,6 +61,15 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
         }
         
         entryText!.text = text
+        
+        if entry.mealType != "none" {
+            sliderData.text = "\t\t\tPre-meal\tPost-meal\n"
+            sliderData.text.append("Hunger:\t\t\(entry.preMealHunger)\t\t\t\(entry.postMealHunger)\n")
+            sliderData.text.append("Focus:\t\t\(entry.preMealFocus)\t\t\t\(entry.postMealFocus)\n")
+            sliderData.text.append("Calmness:\t\(entry.preMealCalmness)\t\t\t\(entry.postMealCalmness)\n")
+            sliderData.text.append("Happiness:\t\(entry.preMealHappiness)\t\t\t\(entry.postMealHappiness)\n")
+        }
+        
     }
     
     

@@ -144,6 +144,16 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
         }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Ensure only numbers are entered as input
+        let characterSet = CharacterSet(charactersIn: "0123456789")
+        if textField == mealDuration {
+            return string.rangeOfCharacter(from: characterSet.inverted) == nil
+        } else {
+            return true
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -84,6 +84,7 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate, XMLParse
     // and meal alert time/state
     @IBAction func saveMealProfile(_ sender: UIButton) {
         // Save scheduled meal information in mealProfile.xml
+        mealAlert.endEditing(true)
         self.mealTableViewController?.saveScheduledMeals()
         
         // Save user-defined meal alert warning time in mealProfile.xml;
@@ -158,6 +159,7 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate, XMLParse
                 alertState = alert[0].elements(forName: "state") as! [GDataXMLElement]
                 if alertState[0].stringValue() == "on" {
                     mealAlertSwitch.isOn = true
+                    mealAlertTime = mealAlert.text!
                 } else {
                     mealAlertSwitch.isOn = false
                     mealAlert.isHidden = true
@@ -216,8 +218,16 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate, XMLParse
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
         textField.resignFirstResponder()
+        return false
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == newMealName {
             newMealNameWarning.text = ""
         } else if textField == newMealDuration {
@@ -225,14 +235,17 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate, XMLParse
         } else if textField == mealAlert {
             if textField.text == "" {
                 mealAlert.text = "0"
+            } else {
+                mealAlertTime = mealAlert.text!
             }
         }
-        return false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Ensure only numbers are entered as input
+        let characterSet = CharacterSet(charactersIn: "0123456789")
         if textField == newMealDuration || textField == mealAlert {
-            return string.rangeOfCharacter(from: CharacterSet.letters) == nil
+            return string.rangeOfCharacter(from: characterSet.inverted) == nil
         } else {
             return true
         }
