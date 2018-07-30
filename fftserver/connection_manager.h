@@ -1,16 +1,12 @@
-#ifndef FFTSERVER_H_
-#define FFTSERVER_H_
-
-#include <netinet/ip.h>
-
-struct sockaddr;
+#ifndef FFT_CONNECTION_MANAGER_H
+#define FFT_CONNECTION_MANAGER_H
 
 // initialize and deinitialize module
-int FFTServerInit();
-int FFTServerDeInit();
+int ConnectionManagerInit();
+int ConnectionManagerDeinit();
 
 // parse main program arguements
-void ParseArguements(int argc, char **argv);
+int ParseArguements(int argc, char **argv);
 
 // launches the request manager threads
 int Run(void);
