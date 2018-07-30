@@ -1,20 +1,25 @@
 CC_C = g++
-CFLAGS = -g -pthread -Wall
+CFLAGS = -std=c++11 -g -pthread -I /usr/include/mysql -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -lrt -ldl -Wall
 
-all: main
+all: fftserver send
 
-main: main.cpp fftserver.o
-	@echo MAIN
-	$(CC_C) $(CFLAGS) -o fftserver main.cpp fftserver.o utils.o
-
-fftserver.o: fftserver.cpp fftserver.h utils.o
+fftserver: fftserver.cpp connection_manager.o request_manager.o
 	@echo FFTSERVER
-	$(CC_C) $(CFLAGS) -c -o fftserver.o fftserver.cpp
+	$(CC_C) -o fftserver fftserver.cpp connection_manager.o request_manager.o $(CFLAGS)
 
-utils.o: utils.cpp utils.h
-	@echo UTILS
-	$(CC_C) $(CFLAGS) -c -o utils.o utils.cpp
+connection_manager.o: connection_manager.cpp connection_manager.h
+	@echo CONNECTION MANAGER
+	$(CC_C) $(CFLAGS) -c -o connection_manager.o connection_manager.cpp
+
+request_manager.o: request_manager.cpp request_manager.h 
+	@echo REQUEST MANAGER
+	$(CC_C) $(CFLAGS) -c -o request_manager.o request_manager.cpp
+
+send:
+	@echo SEND
+	fftscp fftserver
+	fftscp fftdb
 
 clean:
 	@echo CLEAN
-	rm *.o fftserver
+	rm -f *.o fftserver fftdbquery.sql
