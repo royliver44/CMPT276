@@ -19,8 +19,8 @@ static int HandleAccountRequest(string &clientMessage, string &response);
 
 // Critical Subroutines
 static int ChangeUserRep(string &userid, int amount);
+static int ChangePostLoveCount(string &postid, int amount);
 static int ExecDB(string queryString);
-static int PackagePosts(string &response, string &userid, MYSQL_RES *postsQueryResult);
 static int PackagePosts(string &response, string &userid, MYSQL_RES *postsQueryResult);
 static int GenerateTicket(string userid);
 static int GetAuthorIDOfPost(string &authorid, string postid);
@@ -37,14 +37,14 @@ static const int BAD_REQ = -1;
 static const int BAD_AUTH = -2;
 
 static const char escapeChar = '\\';
-static const char delimChar = ',';
+static const char delimChar = '*';
 static const char objectDelimChar = '~';
 static const char listDelimChar = '^';
 static const char ticketDelimChar = '-';
 static char successHeader[] = "G";
 static char failHeader[] = "B";
 
-static const int likeRep = 1;
+static const int loveRep = 1;
 static const int postRep = 3;
 static const int followRep = 5;
 
@@ -199,7 +199,7 @@ static int HandleCreateRequest(string &clientMessage, string &response)
       int ticket = GenerateTicket(userid);
       if (ticket < 0) return BAD_REQ;
       response += userid;
-      response += ",";
+      response += ticketDelimChar;
       response += to_string(ticket);
 
   		return error;
@@ -226,8 +226,10 @@ static int HandleCreateRequest(string &clientMessage, string &response)
 
       // incriment the posters rep for making a post
       // decriment happens with response to the delete post request
-      if (ChangeUserRep(clientData[0], postRep)) return BAD_REQ;
-
+      if (clientData[0] != "0")
+      {
+        if (ChangeUserRep(clientData[0], postRep)) return BAD_REQ;
+      }
   		return error; // NOT NULL
     }
   	case 'R':
@@ -240,7 +242,7 @@ static int HandleCreateRequest(string &clientMessage, string &response)
     }
   	case 'L':
     {
-  		// get userid, postid, likeval
+  		// get userid, postid, loveval
       clientMessage.erase(0, 2);
       vector<string> clientData;
       if (GetClientData(clientMessage, clientData)) return BAD_REQ;
@@ -248,42 +250,46 @@ static int HandleCreateRequest(string &clientMessage, string &response)
 
       if (clientData.size() != 3)
       {
-        cout << "ERROR reading like command, wrong number of parameters" << endl;
+        cout << "ERROR reading love command, wrong number of parameters" << endl;
         return BAD_REQ;
       }
 
-      // get user's the current likestate of the post
-      string queryString = "SELECT LikeState FROM LikesByUser WHERE UserID = "
+      // get user's the current lovestate of the post
+      string queryString = "SELECT LoveState FROM LoveByUser WHERE UserID = "
       + clientData[0] + " AND PostID = " + clientData[1] + ";";
       if (ExecDB(queryString)) return BAD_REQ;
       MYSQL_RES *res = mysql_store_result(&mysqlObj);
 
       // if no results, create entry
-      int previousLikeState = 0;
+      int previousLoveState = 0;
       if (!mysql_num_rows(res))
       {
-        if (ConstructInsertQuery(queryString, "LikesByUser", clientData)) return BAD_REQ;
+        if (ConstructInsertQuery(queryString, "LoveByUser", clientData)) return BAD_REQ;
         if (ExecDB(queryString)) return BAD_REQ;
       }
       // if results, update entry
       else
       {
         MYSQL_ROW row = mysql_fetch_row(res);
-        previousLikeState = stoi(row[0]);
+        previousLoveState = stoi(row[0]);
         queryString =
-        "UPDATE LikesByUser SET LikeState = " + clientData[2]
+        "UPDATE LoveByUser SET LoveState = " + clientData[2]
         + " WHERE UserID = " + clientData[0] + " AND PostID = "
         + clientData[1] + ";";
         if (ExecDB(queryString)) return BAD_REQ;
       }
       mysql_free_result(res);
 
-      // incriment/decrement poster's rep based on previous like state
-      int newLikeState = stoi(clientData[2]);
+      // incriment/decriment post loveCount based on previous love state
+      int newLoveState = stoi(clientData[2]);
+      int changeInLove = newLoveState - previousLoveState;
+      if(ChangePostLoveCount(clientData[1], changeInLove)) return -1;
+
+      // incriment/decrement poster's rep based on previous love state
       string authorid;
       GetAuthorIDOfPost(authorid, clientData[1]);
-      cout << "AuthorID of the liked post: " << authorid << endl;
-      if (ChangeUserRep(authorid, newLikeState - previousLikeState)) return BAD_REQ;
+      cout << "AuthorID of the loved/hated post: " << authorid << endl;
+      if (ChangeUserRep(authorid, changeInLove)) return BAD_REQ;
 
   		return error;
     }
@@ -413,6 +419,28 @@ static int HandleGetRequest(string &clientMessage, string &response)
     }
   	case 'P':
     {
+      // get userid
+      clientMessage.erase(0, 2);
+      vector<string> clientData;
+      if (GetClientData(clientMessage, clientData)) return -1;
+      if (AuthenticateUser(clientData[0])) return BAD_AUTH;
+
+      // get a list of Posts
+      string queryString = "SELECT * from Posts ORDER BY LoveCount DESC LIMIT 50;";
+
+      // execute the select command
+      if (ExecDB(queryString)) return -1;
+
+      // retreive the ID and return
+      MYSQL_RES* postsQueryResult = mysql_store_result(&mysqlObj);
+      if(!postsQueryResult) return -1;
+
+      // package the posts with associated user information
+      PackagePosts(response, clientData[0], postsQueryResult);
+
+      // clean up query results
+      mysql_free_result(postsQueryResult);
+
       return error;
     }
   	case 'M':
@@ -451,7 +479,7 @@ static int HandleAccountRequest(string &clientMessage, string &response)
       if (GetClientData(clientMessage, clientData)) return -1;
 
       // check if account exists
-      string queryString = "SELECT ID FROM Users WHERE Name = "
+      string queryString = "SELECT ID, Name FROM Users WHERE Name = "
       + clientData[0] + " AND Password = " + clientData[1] + ";";
       if (ExecDB(queryString)) return -1;
       MYSQL_RES *res = mysql_store_result(&mysqlObj);
@@ -461,13 +489,15 @@ static int HandleAccountRequest(string &clientMessage, string &response)
         MYSQL_ROW row = mysql_fetch_row(res);
         string userid = row[0];
         response += userid;
-        response += ",";
+        response += ticketDelimChar;
         int ticket = GenerateTicket(userid);
         response += to_string(ticket);
+        response += delimChar;
+        response += row[1];
       }
       else
       {
-        // login failed
+        // login failed, the name password combination provided does not exist
         error = -1;
       }
 
@@ -476,9 +506,31 @@ static int HandleAccountRequest(string &clientMessage, string &response)
     }
   	case 'O':
     {
+      int error = 0;
   		// get userid
-  		// MODIFY User.ticket (== 0)
-  		return error; //NOT NULL
+      // get username, password
+      clientMessage.erase(0, 2);
+      vector<string> clientData;
+      if (GetClientData(clientMessage, clientData)) return -1;
+      if (AuthenticateUser(clientData[0])) return BAD_AUTH;
+
+      // if the client is authentic, set their ticket to 0
+      string queryString = "UPDATE Users SET Ticket = 0 WHERE ID = "
+      + clientData[0] + ";";
+      if (ExecDB(queryString))
+      {
+        cout << "ERROR setting user ticket to zero (logout procedure)" << endl;
+        return -1;
+      }
+
+      // check to make sure only one Users entry was modified
+      if (mysql_affected_rows(&mysqlObj) == 0)
+      {
+        cout << "ERROR: More than one user was just logged out" << endl;
+        error = -1;
+      }
+
+  		return error;
     }
     default:
     {
@@ -497,6 +549,12 @@ CRITICAL SUBROUTINES
 // returns 0 on success
 static int ChangeUserRep(string &userid, int amount)
 {
+  // don't try to increase the reputation of an anonymous user
+  if (userid == "0")
+  {
+    return 0;
+  }
+
   string queryString = "UPDATE Users SET Reputation = Reputation + (" + to_string(amount)
   + ") WHERE ID = " + userid + ";";
 
@@ -505,6 +563,25 @@ static int ChangeUserRep(string &userid, int amount)
   if (!mysql_affected_rows(&mysqlObj))
   {
     cout << "ERROR: Zero rows affected while trying to update user rep" << endl;
+    return -1;
+  }
+
+	return 0; //success status
+}
+
+// changes a selected post's love count
+// accepts the post's id in string format and the amount to inc/dec as an int
+// returns 0 on success
+static int ChangePostLoveCount(string &postid, int amount)
+{
+  string queryString = "UPDATE Posts SET LoveCount = LoveCount + (" + to_string(amount)
+  + ") WHERE ID = " + postid + ";";
+
+  if (ExecDB(queryString)) return -1;
+
+  if (!mysql_affected_rows(&mysqlObj))
+  {
+    cout << "ERROR: Zero rows affected while trying to update post love coutnm" << endl;
     return -1;
   }
 
@@ -535,6 +612,7 @@ static int ExecDB(string queryString)
 // returns 0 on success
 static int PackagePosts(string &response, string &userid, MYSQL_RES *postsQueryResult)
 {
+  cout << "response:" << response << "userid:" << userid << endl;
   int numPosts = mysql_num_rows(postsQueryResult);
   int error = 0;
   string queryString;
@@ -549,32 +627,36 @@ static int PackagePosts(string &response, string &userid, MYSQL_RES *postsQueryR
     // look at a post in the list of posts we are sending to the client
     MYSQL_ROW currentPost = mysql_fetch_row(postsQueryResult);
 
-    // add the posts data to the response
+    // add the current post's data to the response
     for (int j = 0; j < 5; j++)
     {
       response += currentPost[j];
       response += delimChar;
     }
 
-    // determine whether the client has liked this post before loading this page
-    queryString = "SELECT LikeState FROM LikesByUser WHERE UserID = "
+    // add locstatus to the message
+    queryString = "SELECT LoveState FROM LoveByUser WHERE UserID = "
     + userid + " AND PostID = " + currentPost[0] + ";";
     if (ExecDB(queryString)) return -1;
+    cout << "executed select from lovestate, result:" << endl;
     res = mysql_store_result(&mysqlObj);
 
-    // add the post specific like results to the response buffer
+    // add the post specific love results to the response buffer
     // will be zero if the user is not logged in (userid == 0)
     if (!mysql_num_rows(res))
     {
+      cout << "No previous user love for this post!" << endl;
       response += "0";
     }
     else
     {
-      // user has like the post before
+      // user has loved the post before
       row = mysql_fetch_row(res);
       response += row[0];
     }
     mysql_free_result(res);
+
+
 
     // add a newObject character to signal we have added all the data relevent
     // to this post
@@ -586,6 +668,8 @@ static int PackagePosts(string &response, string &userid, MYSQL_RES *postsQueryR
     // add this post's author ID to our list of authors if it hasn't already been
     for (unsigned int j = 0; j < authorids.size(); j++)
     {
+      // do not uncomment this line
+      //cout << "currentpostauthorid=" << currentPost[1] << ", currently checkingauthorid=" << authorids[1] << endl;
       if (currentPost[1] == authorids[j])
       {
         addThisAuthorFlag = false;
@@ -609,44 +693,57 @@ static int PackagePosts(string &response, string &userid, MYSQL_RES *postsQueryR
   int numAuthors = authorids.size();
   for (int i = 0; i < numAuthors; i++)
   {
-    queryString = "SELECT Name, Reputation FROM Users WHERE ID = "
-    + authorids[i] + ";";
-    if (ExecDB(queryString)) return -1;
-    res = mysql_store_result(&mysqlObj);
-
-    if (mysql_num_rows(res) != 1)
+    if (authorids[i] == "0")
     {
-      cout << "ERROR: IDs in Users table appears to inconsistent" << endl;
-      return -1;
-    }
-
-    // add the author's id, name, and reputation to the response
-    row = mysql_fetch_row(res);
-    mysql_free_result(res);
-    response += authorids[i];
-    response += ",";
-    response += row[0];
-    response += ",";
-    response += row[1];
-    response += ",";
-
-    // get the users follow status for this author
-    queryString = "SELECT * FROM FollowersByUser where UserID = "
-    + userid + " AND FollowerID = " + authorids[i] + ";";
-    if (ExecDB(queryString)) return -1;
-    res = mysql_store_result(&mysqlObj);
-
-    // add the following status to the response message
-    // will be "0" if the client hasn't logged in
-    if (mysql_num_rows(res) > 0)
-    {
-      response += "1";
+      // an anonymous user was an author of a post in this response
+      for (int m = 0; m < 3; m++)
+      {
+        response += "0";
+        response += delimChar;
+      }
+      response += "0";
     }
     else
     {
-      response += "0";
+      queryString = "SELECT Name, Reputation FROM Users WHERE ID = "
+      + authorids[i] + ";";
+      if (ExecDB(queryString)) return -1;
+      res = mysql_store_result(&mysqlObj);
+
+      if (mysql_num_rows(res) != 1)
+      {
+        cout << "ERROR: IDs in Users table appears to inconsistent" << endl;
+        return -1;
+      }
+
+      // add the author's id, name, and reputation to the response
+      row = mysql_fetch_row(res);
+      mysql_free_result(res);
+      response += authorids[i];
+      response += delimChar;
+      response += row[0];
+      response += delimChar;
+      response += row[1];
+      response += delimChar;
+
+      // get the users follow status for this author
+      queryString = "SELECT * FROM FollowersByUser where UserID = "
+      + userid + " AND FollowerID = " + authorids[i] + ";";
+      if (ExecDB(queryString)) return -1;
+      res = mysql_store_result(&mysqlObj);
+
+      // add the following status to the response message
+      // will be "0" if the client hasn't logged in
+      if (mysql_num_rows(res) > 0)
+      {
+        response += "1";
+      }
+      else
+      {
+        response += "0";
+      }
+      mysql_free_result(res);
     }
-    mysql_free_result(res);
 
     // add a newObject character to signal we have added all the data relevent
     // to this post
@@ -699,6 +796,7 @@ static int GetAuthorIDOfPost(string &authorid, string postid)
 }
 
 // authenticates a users ID and ticket sent as the first arguement of many requests
+// modifys the userid input parameter to contain only the users id (as a string)
 // returns 0 on success
 static int AuthenticateUser(string& userid)
 {
@@ -813,10 +911,10 @@ int ConstructInsertQuery(string &queryString, string tableName, vector<string> &
     numFields = 2;
     columns = "(UserID, PostID) ";
   }
-  else if (tableName == "LikesByUser")
+  else if (tableName == "LoveByUser")
   {
     numFields = 3;
-    columns = "(UserID, PostID, LikeState) ";
+    columns = "(UserID, PostID, LoveState) ";
   }
   else if (tableName == "FollowersByUser")
   {

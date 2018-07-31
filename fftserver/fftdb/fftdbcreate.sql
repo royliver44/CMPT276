@@ -1,12 +1,5 @@
---fftdbcreate.sql
---Creates the Food For Thought forums database
---Group 6
---Written by Jordan Ehrenholz
-
 CREATE DATABASE fftdb;
 USE fftdb;
-
---key objects
 CREATE TABLE Users(
 ID int AUTO_INCREMENT NOT NULL,
 Name varchar(32) NOT NULL,
@@ -22,7 +15,7 @@ ID int AUTO_INCREMENT NOT NULL,
 AuthorID int NOT NULL,
 Body varchar(1024) NOT NULL,
 CreationTime timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
-Likes int DEFAULT 0 NOT NULL,
+LoveCount int DEFAULT 0 NOT NULL,
 PRIMARY KEY (ID)
 );
 CREATE TABLE Replies(
@@ -31,8 +24,6 @@ AuthorID int NOT NULL,
 CreationTime timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
 BodyText varchar(1024) NOT NULL
 );
-
---relationship objects
 CREATE TABLE PostsByUser(
 UserID int NOT NULL,
 PostID int NOT NULL
@@ -45,10 +36,10 @@ CREATE TABLE RepliesByParentReplies(
 ParentID int NOT NULL,
 ChildID int NOT NULL
 );
-CREATE TABLE LikesByUser(
+CREATE TABLE LoveByUser(
 UserID int NOT NULL,
 PostID int NOT NULL,
-LikeState int NOT NULL
+LoveState int NOT NULL
 );
 CREATE TABLE FollowersByUser(
 UserID int NOT NULL,
