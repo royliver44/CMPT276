@@ -11,8 +11,12 @@ import UIKit
 import AVFoundation
 import SafariServices
 
+
+
 class musicController: UIViewController , UITableViewDataSource, UITableViewDelegate,SPTAudioStreamingPlaybackDelegate, SPTAudioStreamingDelegate{
     //set up audio player
+    static let shared = musicController()
+    
     var audioPlayer = AVAudioPlayer()
     var playerFlag = 0
     var AudioListCount = 0  // count AudioPlayer Files
@@ -151,7 +155,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                     // add label to audio list
                     let label = "Featured \(self.audioList.count - self.AudioListCount + 1): \(feat_playlist.name!) (\(feat_playlist.trackCount) Tracks)"
                     self.audioList.append([label, feat_playlist.playableUri.absoluteString])
-                        print(feat_playlist.playableUri.absoluteString)
+                        //print(feat_playlist.playableUri.absoluteString)
                     }
                     flag = true
                     
@@ -166,6 +170,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         
         while !flag{}
         Playlist.reloadData()
+        musicController.shared.audioList = audioList
         
     }
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
@@ -179,15 +184,10 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         
     }
     //
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        Playlist.dataSource = self
-        Playlist.delegate = self
+    func fetch_local_music(){
         //Automatic Music list generation (mp3 only)
         let docsPath = Bundle.main.resourcePath!
-
+        
         let fileManager = FileManager.default
         do{
             //getting all files
@@ -205,15 +205,16 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
             }
             //adding to audioList
             for each in docsArray{
-                 audioList.append(each.components(separatedBy: "."))
+                audioList.append(each.components(separatedBy: "."))
             }
         }catch{
             print(error)
         }
-        
+        musicController.shared.audioList = audioList
         AudioListCount = audioList.count
-        //Audio setup
         
+    }
+    func avAudioSetup(){
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[0][0], ofType: audioList[0][1])!))
             audioPlayer.prepareToPlay()
@@ -227,6 +228,17 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         catch{
             print(error)
         }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        Playlist.dataSource = self
+        Playlist.delegate = self
+        
+        //Audio setup
+        fetch_local_music()
+        
+        avAudioSetup()
         //end Audio setup
         
         //spotify intergtation
@@ -302,6 +314,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         
         }
     }
+    
     func playByIndex(index: Int){
         currentNameLabel.adjustsFontForContentSizeCategory = true
             //pause any playing music
@@ -340,6 +353,28 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
             getTrackName(url: url)
             sleep(1)
             currentNameLabel.text = "\(trackArtistName)"
+        }
+    }
+    
+    func background_play(){
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(lableUpdate), userInfo: nil, repeats: true)
+        if playerFlag == 0 {
+            audioPlayer.play()
+            
+            // todo: creat a thread that call next up on finish playing.(done)
+            DispatchQueue.global(qos: .background).async {
+                
+                while(self.audioPlayer.duration - self.audioPlayer.currentTime > 1){
+                    sleep(1)
+                }
+                self.background_next()
+            }
+        }else{
+            if player?.playbackState != nil{
+                if player?.playbackState.isPlaying == false {
+                    player?.setIsPlaying(true, callback: nil)
+                }
+            }
         }
     }
     func play(){
@@ -405,6 +440,27 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         }
     }
     
+    func background_next(){
+        if playerFlag == 0 {
+            do{
+                
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioList[(itr+1) % AudioListCount][0], ofType: audioList[(itr+1) % AudioListCount][1])!))
+                itr += 1
+                audioPlayer.prepareToPlay()
+                play()
+                
+            }catch{
+                print(error)
+            }
+        }else{
+            player?.skipNext(nil)
+            sleep(1)
+            let url = (player?.metadata!.currentTrack!.uri)!
+            getTrackName(url: url)
+        }
+    }
+    
+    
     func next(){
         if playerFlag == 0 {
             do{
@@ -441,7 +497,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         
     }
 
-    @IBAction func pause(_ sender: UIButton) {
+    func pause(){
         if playerFlag == 0{
             if audioPlayer.isPlaying{
                 audioPlayer.pause()
@@ -453,9 +509,9 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
                 }
             }
         }
-        //URL(string: (player?.metadata!.currentTrack!.uri)!)
-        
-
+    }
+    @IBAction func pause(_ sender: UIButton) {
+        pause()
         
     }
     
