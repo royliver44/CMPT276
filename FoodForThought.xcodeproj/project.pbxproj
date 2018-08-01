@@ -10,10 +10,14 @@
 		C012FE7D20FFECE000611864 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */; };
 		C012FE7E20FFECE000611864 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */; };
 		C012FE7F20FFECE000611864 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */; };
+		D202C69A2111481C00F0E660 /* fftHome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D202C6982111481C00F0E660 /* fftHome.jpg */; };
+		D202C69D21114BE900F0E660 /* fftHome2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D202C69C21114BE900F0E660 /* fftHome2.jpg */; };
 		D234B77020FF0020003C5AA8 /* JournalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */; };
 		D234B77220FF064C003C5AA8 /* DisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */; };
 		D234B77420FF067F003C5AA8 /* addItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77320FF067F003C5AA8 /* addItemViewController.swift */; };
 		D234B77620FF06D0003C5AA8 /* UpdateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */; };
+		D28EDF3E211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D28EDF3D211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg */; };
+		D28EDF402110294A007C1000 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D28EDF3F2110294A007C1000 /* home.jpg */; };
 		DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */; };
 		DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */; };
 		DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */; };
@@ -63,10 +67,14 @@
 		C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		D202C6982111481C00F0E660 /* fftHome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fftHome.jpg; sourceTree = "<group>"; };
+		D202C69C21114BE900F0E660 /* fftHome2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fftHome2.jpg; path = "../../../../../OneDrive - sfu.ca/School/1CMPT_276/Resources/fftHome2.jpg"; sourceTree = "<group>"; };
 		D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JournalModel.xcdatamodel; sourceTree = "<group>"; };
 		D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewController.swift; sourceTree = "<group>"; };
 		D234B77320FF067F003C5AA8 /* addItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addItemViewController.swift; sourceTree = "<group>"; };
 		D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateItemViewController.swift; sourceTree = "<group>"; };
+		D28EDF3D211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg"; sourceTree = "<group>"; };
+		D28EDF3F2110294A007C1000 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
 		DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodForThought-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
@@ -156,6 +164,10 @@
 		DFCA432920F92A5800F32A1F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D28EDF3F2110294A007C1000 /* home.jpg */,
+				D202C6982111481C00F0E660 /* fftHome.jpg */,
+				D202C69C21114BE900F0E660 /* fftHome2.jpg */,
+				D28EDF3D211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg */,
 				DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */,
 			);
 			path = Images;
@@ -349,11 +361,15 @@
 				DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */,
 				F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */,
 				DFAC230620F8017400DA24AA /* Kiss The Rain.mp3 in Resources */,
+				D202C69D21114BE900F0E660 /* fftHome2.jpg in Resources */,
 				DFECD17220ED732300515451 /* mealProfile.xml in Resources */,
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
+				D28EDF402110294A007C1000 /* home.jpg in Resources */,
 				DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */,
 				DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */,
 				DFD75BE12109081D008451DF /* mindfulEatingPrompts.txt in Resources */,
+				D28EDF3E211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg in Resources */,
+				D202C69A2111481C00F0E660 /* fftHome.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +588,7 @@
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "-lxml2";
@@ -598,6 +615,7 @@
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "-lxml2";
