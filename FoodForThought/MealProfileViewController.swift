@@ -26,6 +26,8 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate, XMLParse
     var mealAlertTime: String = "0"
     var mealProfileURL: NSURL?
     
+ 
+    
     
     // MARK: Actions
     // Display meal alert box if meal alert status = on
@@ -120,6 +122,7 @@ class MealProfileViewController: UIViewController, UITextFieldDelegate, XMLParse
         // Set notifications based on meal times and alert time
         self.mealTableViewController?.setMealNotifications(mealAlert: mealAlertTime)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

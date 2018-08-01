@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Foundation
 
-class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     var entryDate = String()
     var preMealHunger: Int = 0
@@ -35,6 +35,8 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var happinessSlider: UISlider!
     @IBOutlet var unscheduledMealName: UITextField!
     @IBOutlet var enterNewMeal: UILabel!
+    @IBOutlet weak var textfiled: UITextField!
+    
     
     @IBOutlet weak var myImageView: UIImageView!
 
@@ -50,6 +52,15 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             //After it is complete
         }
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textfiled.resignFirstResponder()
+        return(true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

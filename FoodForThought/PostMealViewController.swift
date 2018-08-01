@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PostMealViewController: UIViewController, UITextViewDelegate {
+class PostMealViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     var mealJournalItem = Item()
     var postMealHunger: Int = 0
@@ -17,6 +17,7 @@ class PostMealViewController: UIViewController, UITextViewDelegate {
     var postMealCalmness: Int = 0
     var postMealHappiness: Int = 0
     var journalEntryPlaceholder = "Write a journal entry about your eating experience..."
+    @IBOutlet weak var textfiled: UITextView!
     
     // MARK: Outlets
     @IBOutlet var hungerSlider: UISlider!
@@ -34,6 +35,15 @@ class PostMealViewController: UIViewController, UITextViewDelegate {
         mealJournalItem.entryText = journalEntry.text
         print(journalEntry.text)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textfiled.resignFirstResponder()
+        return(true)
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -65,6 +75,7 @@ class PostMealViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.textfiled.delegate = self
         journalEntry.delegate = self
         journalEntry.text = journalEntryPlaceholder
         journalEntry.textColor = UIColor.lightGray

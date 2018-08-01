@@ -10,13 +10,14 @@ import UIKit
 import CoreData
 import Foundation
 
-class UpdateItemViewController: UIViewController, UITextViewDelegate {
+class UpdateItemViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var item: Item!
     
     @IBOutlet weak var entryText: UITextView!
     @IBOutlet var sliderData: UITextView!
+     @IBOutlet weak var textfiled: UITextView!
     
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -47,6 +48,15 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
         sliderData.isEditable = false
         
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textfiled.resignFirstResponder()
+        return(true)
     }
     
     override func didReceiveMemoryWarning() {

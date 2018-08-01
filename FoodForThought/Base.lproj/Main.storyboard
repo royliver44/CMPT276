@@ -300,6 +300,7 @@
                         <outlet property="happinessSlider" destination="Bkk-zH-Roy" id="V0x-ck-es1"/>
                         <outlet property="hungerSlider" destination="Y6i-NP-tKE" id="dZs-sK-Z7y"/>
                         <outlet property="mealPicker" destination="9lU-Ay-FHy" id="9SX-ev-slW"/>
+                        <outlet property="textfiled" destination="cxx-Ga-pcR" id="AsK-BZ-VHa"/>
                         <outlet property="unscheduledMealName" destination="cxx-Ga-pcR" id="BCb-c7-iC8"/>
                     </connections>
                 </viewController>
@@ -404,7 +405,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74396858809999999" green="0.74396858809999999" blue="0.74396858809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="go"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vm1-fk-dGS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
@@ -457,6 +458,7 @@
                         <outlet property="happinessSlider" destination="vTA-bM-6MW" id="Iva-MH-2J0"/>
                         <outlet property="hungerSlider" destination="q04-R9-CGj" id="NpQ-jL-Rrv"/>
                         <outlet property="journalEntry" destination="LlJ-Ds-Kc7" id="88F-2l-kIZ"/>
+                        <outlet property="textfiled" destination="LlJ-Ds-Kc7" id="Zkn-aq-RLn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIG-XX-MMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1313,7 +1315,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Type anything..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sq7-i7-IX7">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Type anything..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sq7-i7-IX7">
                                 <rect key="frame" x="16" y="186" width="343" height="332"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1405,7 +1407,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Type anything..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dev-za-Ul2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Type anything..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dev-za-Ul2">
                                 <rect key="frame" x="16" y="123" width="343" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74396858809999999" green="0.74396858809999999" blue="0.74396858809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1491,6 +1493,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cVJ-FU-GYM"/>
-        <segue reference="Sl5-3A-1Yk"/>
+        <segue reference="Iyu-vu-AWn"/>
     </inferredMetricsTieBreakers>
 </document>
