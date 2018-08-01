@@ -65,7 +65,6 @@ extension DisplayTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalTableViewCell", for: indexPath) as! JournalTableViewCell
-       
         
         cell.entryTitle.text = filteredData[indexPath.row].name
         cell.entryDate.text = filteredData[indexPath.row].date!
