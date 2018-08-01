@@ -7,25 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DC242C620F69F7F007D9139 /* Raise Your Voice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6DC242C520F69F7F007D9139 /* Raise Your Voice.mp3 */; };
+		C012FE7D20FFECE000611864 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */; };
+		C012FE7E20FFECE000611864 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */; };
+		C012FE7F20FFECE000611864 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */; };
+		D202C69A2111481C00F0E660 /* fftHome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D202C6982111481C00F0E660 /* fftHome.jpg */; };
+		D202C69D21114BE900F0E660 /* fftHome2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D202C69C21114BE900F0E660 /* fftHome2.jpg */; };
+		D202C6A4211172F600F0E660 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C69E211172F300F0E660 /* home.png */; };
+		D202C6A5211172F600F0E660 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C69F211172F400F0E660 /* settings.png */; };
+		D202C6A6211172F600F0E660 /* Journal.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C6A0211172F400F0E660 /* Journal.png */; };
+		D202C6A7211172F600F0E660 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C6A1211172F500F0E660 /* music.png */; };
+		D202C6A8211172F600F0E660 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C6A2211172F500F0E660 /* about.png */; };
+		D202C6A9211172F600F0E660 /* forum.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C6A3211172F500F0E660 /* forum.png */; };
+		D234B77020FF0020003C5AA8 /* JournalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */; };
+		D234B77220FF064C003C5AA8 /* DisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */; };
+		D234B77420FF067F003C5AA8 /* addItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77320FF067F003C5AA8 /* addItemViewController.swift */; };
+		D234B77620FF06D0003C5AA8 /* UpdateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */; };
+		D28EDF3E211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D28EDF3D211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg */; };
+		D28EDF402110294A007C1000 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D28EDF3F2110294A007C1000 /* home.jpg */; };
+		DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */; };
 		DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */; };
 		DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */; };
+		DF707BC020F68ABF006B611A /* StartMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF707BBF20F68ABF006B611A /* StartMealViewController.swift */; };
+		DF76E74120F6A85700AE5236 /* InMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF76E74020F6A85700AE5236 /* InMealViewController.swift */; };
 		DF86C5E720ED5FA5001F3778 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86C5E620ED5FA4001F3778 /* MusicController.swift */; };
 		DFA39A1620E80AAE00E54064 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA39A1520E80AAE00E54064 /* MealTableViewController.swift */; };
+		DFAC230620F8017400DA24AA /* Kiss The Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230120F8017400DA24AA /* Kiss The Rain.mp3 */; };
+		DFAC230720F8017400DA24AA /* October.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230220F8017400DA24AA /* October.mp3 */; };
+		DFAC230820F8017400DA24AA /* PPAP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230320F8017400DA24AA /* PPAP.mp3 */; };
+		DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */; };
+		DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */; };
+		DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */; };
+		DFD75BE12109081D008451DF /* mindfulEatingPrompts.txt in Resources */ = {isa = PBXBuildFile; fileRef = DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */; };
+		DFDB12EC2107BE990055C0A2 /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */; };
+		DFDB12EE2107CE8E0055C0A2 /* PostMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */; };
 		DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */; };
-		DFECD16D20ED70D000515451 /* Kiss The Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFECD16920ED70D000515451 /* Kiss The Rain.mp3 */; };
-		DFECD16E20ED70D000515451 /* PPAP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFECD16A20ED70D000515451 /* PPAP.mp3 */; };
-		DFECD16F20ED70D000515451 /* October.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFECD16B20ED70D000515451 /* October.mp3 */; };
-		DFECD17020ED70D000515451 /* The Truth That You Leave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFECD16C20ED70D000515451 /* The Truth That You Leave.mp3 */; };
 		DFECD17220ED732300515451 /* mealProfile.xml in Resources */ = {isa = PBXBuildFile; fileRef = DFECD17120ED732300515451 /* mealProfile.xml */; };
 		F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F720E48DD0005D5805 /* AppDelegate.swift */; };
 		F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F920E48DD0005D5805 /* FirstViewController.swift */; };
 		F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3FB20E48DD0005D5805 /* SecondViewController.swift */; };
-		F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F632C3FD20E48DD0005D5805 /* Main.storyboard */; };
+		F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F632C3FD20E48DD0005D5805 /* Main.storyboard */; settings = {ASSET_TAGS = (AuthorView, ); }; };
 		F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F632C40020E48DD0005D5805 /* Assets.xcassets */; };
 		F632C40420E48DD0005D5805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F632C40220E48DD0005D5805 /* LaunchScreen.storyboard */; };
 		F632C40F20E48DD1005D5805 /* FoodForThoughtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C40E20E48DD1005D5805 /* FoodForThoughtTests.swift */; };
 		F632C41A20E48DD1005D5805 /* FoodForThoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C41920E48DD1005D5805 /* FoodForThoughtUITests.swift */; };
+		F63574AB210DCBE40037DB85 /* FUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63574AA210DCBE40037DB85 /* FUtils.swift */; };
+		F659DAC02110C10000F70DDA /* FSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F659DABF2110C10000F70DDA /* FSignInVC.swift */; };
+		F6601C6521041D4900578EF7 /* FCreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6601C6421041D4900578EF7 /* FCreatePostVC.swift */; };
+		F699B816210990F20028B3C0 /* FPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699B815210990F20028B3C0 /* FPostTableCell.swift */; };
+		F6AFD0CD2108424600942881 /* FBrowseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFD0CC2108424500942881 /* FBrowseVC.swift */; };
+		F6DCEA9920FDD991007D4FD1 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6DCEA9020FDD991007D4FD1 /* Info-tvOS.plist */; };
+		F6DCEA9A20FDD991007D4FD1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6DCEA9120FDD991007D4FD1 /* Info.plist */; };
+		F6DCEA9B20FDD991007D4FD1 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9220FDD991007D4FD1 /* Result.swift */; };
+		F6DCEA9C20FDD991007D4FD1 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9320FDD991007D4FD1 /* Socket.swift */; };
+		F6DCEA9D20FDD991007D4FD1 /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9520FDD991007D4FD1 /* TCPClient.swift */; };
+		F6DCEA9E20FDD991007D4FD1 /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9620FDD991007D4FD1 /* UDPClient.swift */; };
+		F6DCEA9F20FDD991007D4FD1 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9720FDD991007D4FD1 /* ytcpsocket.c */; };
+		F6DCEAA020FDD991007D4FD1 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9820FDD991007D4FD1 /* yudpsocket.c */; };
+		F6DCEADC20FDDA56007D4FD1 /* FDebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEADB20FDDA56007D4FD1 /* FDebugVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +84,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6DC242C520F69F7F007D9139 /* Raise Your Voice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Raise Your Voice.mp3"; sourceTree = "<group>"; };
+		C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		D202C6982111481C00F0E660 /* fftHome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fftHome.jpg; sourceTree = "<group>"; };
+		D202C69C21114BE900F0E660 /* fftHome2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fftHome2.jpg; path = "../../../../../OneDrive - sfu.ca/School/1CMPT_276/Resources/fftHome2.jpg"; sourceTree = "<group>"; };
+		D202C69E211172F300F0E660 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		D202C69F211172F400F0E660 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		D202C6A0211172F400F0E660 /* Journal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Journal.png; sourceTree = "<group>"; };
+		D202C6A1211172F500F0E660 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
+		D202C6A2211172F500F0E660 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
+		D202C6A3211172F500F0E660 /* forum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forum.png; sourceTree = "<group>"; };
+		D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JournalModel.xcdatamodel; sourceTree = "<group>"; };
+		D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewController.swift; sourceTree = "<group>"; };
+		D234B77320FF067F003C5AA8 /* addItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addItemViewController.swift; sourceTree = "<group>"; };
+		D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateItemViewController.swift; sourceTree = "<group>"; };
+		D28EDF3D211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg"; sourceTree = "<group>"; };
+		D28EDF3F2110294A007C1000 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
+		DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodForThought-Bridging-Header.h"; sourceTree = "<group>"; };
+		DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledMeal.swift; sourceTree = "<group>"; };
+		DF707BBF20F68ABF006B611A /* StartMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMealViewController.swift; sourceTree = "<group>"; };
+		DF76E74020F6A85700AE5236 /* InMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMealViewController.swift; sourceTree = "<group>"; };
 		DF86C5E620ED5FA4001F3778 /* MusicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
 		DFA39A1520E80AAE00E54064 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		DFAC230120F8017400DA24AA /* Kiss The Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kiss The Rain.mp3"; sourceTree = "<group>"; };
+		DFAC230220F8017400DA24AA /* October.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = October.mp3; sourceTree = "<group>"; };
+		DFAC230320F8017400DA24AA /* PPAP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PPAP.mp3; sourceTree = "<group>"; };
+		DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Raise Your Voice.mp3"; sourceTree = "<group>"; };
+		DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Truth That You Leave.mp3"; sourceTree = "<group>"; };
+		DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ios_camera_app_icon.jpg; sourceTree = "<group>"; };
+		DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mindfulEatingPrompts.txt; sourceTree = "<group>"; };
+		DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
+		DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMealViewController.swift; sourceTree = "<group>"; };
 		DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealProfileViewController.swift; sourceTree = "<group>"; };
-		DFECD16920ED70D000515451 /* Kiss The Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kiss The Rain.mp3"; sourceTree = "<group>"; };
-		DFECD16A20ED70D000515451 /* PPAP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PPAP.mp3; sourceTree = "<group>"; };
-		DFECD16B20ED70D000515451 /* October.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = October.mp3; sourceTree = "<group>"; };
-		DFECD16C20ED70D000515451 /* The Truth That You Leave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Truth That You Leave.mp3"; sourceTree = "<group>"; };
 		DFECD17120ED732300515451 /* mealProfile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mealProfile.xml; sourceTree = "<group>"; };
 		F632C3F420E48DD0005D5805 /* FoodForThought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodForThought.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F632C3F720E48DD0005D5805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +135,21 @@
 		F632C41520E48DD1005D5805 /* FoodForThoughtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodForThoughtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F632C41920E48DD1005D5805 /* FoodForThoughtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodForThoughtUITests.swift; sourceTree = "<group>"; };
 		F632C41B20E48DD1005D5805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F63574AA210DCBE40037DB85 /* FUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUtils.swift; sourceTree = "<group>"; };
+		F659DABF2110C10000F70DDA /* FSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSignInVC.swift; sourceTree = "<group>"; };
+		F6601C6421041D4900578EF7 /* FCreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCreatePostVC.swift; sourceTree = "<group>"; };
+		F699B815210990F20028B3C0 /* FPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPostTableCell.swift; sourceTree = "<group>"; };
+		F6AFD0CC2108424500942881 /* FBrowseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FBrowseVC.swift; path = /Users/jehrenho/courses/cmpt276/allnight/FoodForThought/FoodForThought/FBrowseVC.swift; sourceTree = "<absolute>"; };
+		F6DCEA9020FDD991007D4FD1 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		F6DCEA9120FDD991007D4FD1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6DCEA9220FDD991007D4FD1 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F6DCEA9320FDD991007D4FD1 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		F6DCEA9420FDD991007D4FD1 /* SwiftSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftSocket.h; sourceTree = "<group>"; };
+		F6DCEA9520FDD991007D4FD1 /* TCPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPClient.swift; sourceTree = "<group>"; };
+		F6DCEA9620FDD991007D4FD1 /* UDPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
+		F6DCEA9720FDD991007D4FD1 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
+		F6DCEA9820FDD991007D4FD1 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
+		F6DCEADB20FDDA56007D4FD1 /* FDebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FDebugVC.swift; path = ../../FDebugVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +157,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C012FE7D20FFECE000611864 /* SpotifyAuthentication.framework in Frameworks */,
+				C012FE7F20FFECE000611864 /* SpotifyMetadata.framework in Frameworks */,
+				C012FE7E20FFECE000611864 /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,21 +180,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DFECD16820ED70D000515451 /* Music */ = {
+		C012FE7920FFECC600611864 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DFECD16920ED70D000515451 /* Kiss The Rain.mp3 */,
-				DFECD16A20ED70D000515451 /* PPAP.mp3 */,
-				DFECD16B20ED70D000515451 /* October.mp3 */,
-				DFECD16C20ED70D000515451 /* The Truth That You Leave.mp3 */,
-				6DC242C520F69F7F007D9139 /* Raise Your Voice.mp3 */,
+				C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */,
+				C012FE7A20FFECDF00611864 /* SpotifyAuthentication.framework */,
+				C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFAC230020F8017400DA24AA /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				DFAC230120F8017400DA24AA /* Kiss The Rain.mp3 */,
+				DFAC230220F8017400DA24AA /* October.mp3 */,
+				DFAC230320F8017400DA24AA /* PPAP.mp3 */,
+				DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */,
+				DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		DFCA432920F92A5800F32A1F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D202C6A2211172F500F0E660 /* about.png */,
+				D202C6A3211172F500F0E660 /* forum.png */,
+				D202C69E211172F300F0E660 /* home.png */,
+				D202C6A0211172F400F0E660 /* Journal.png */,
+				D202C6A1211172F500F0E660 /* music.png */,
+				D202C69F211172F400F0E660 /* settings.png */,
+				D28EDF3F2110294A007C1000 /* home.jpg */,
+				D202C6982111481C00F0E660 /* fftHome.jpg */,
+				D202C69C21114BE900F0E660 /* fftHome2.jpg */,
+				D28EDF3D211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg */,
+				DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		F632C3EB20E48DD0005D5805 = {
 			isa = PBXGroup;
 			children = (
+				F6DCEA8F20FDD991007D4FD1 /* Sources */,
 				F632C3F620E48DD0005D5805 /* FoodForThought */,
 				F632C40D20E48DD1005D5805 /* FoodForThoughtTests */,
 				F632C41820E48DD1005D5805 /* FoodForThoughtUITests */,
@@ -133,20 +244,40 @@
 		F632C3F620E48DD0005D5805 /* FoodForThought */ = {
 			isa = PBXGroup;
 			children = (
+				C012FE7920FFECC600611864 /* Frameworks */,
+				DFCA432920F92A5800F32A1F /* Images */,
 				DFECD17120ED732300515451 /* mealProfile.xml */,
-				DFECD16820ED70D000515451 /* Music */,
 				F632C3F720E48DD0005D5805 /* AppDelegate.swift */,
 				F632C3F920E48DD0005D5805 /* FirstViewController.swift */,
 				F632C3FB20E48DD0005D5805 /* SecondViewController.swift */,
 				F632C3FD20E48DD0005D5805 /* Main.storyboard */,
+				F659DABF2110C10000F70DDA /* FSignInVC.swift */,
+				F6DCEADB20FDDA56007D4FD1 /* FDebugVC.swift */,
+				F6AFD0CC2108424500942881 /* FBrowseVC.swift */,
+				F6601C6421041D4900578EF7 /* FCreatePostVC.swift */,
+				F699B815210990F20028B3C0 /* FPostTableCell.swift */,
+				F63574AA210DCBE40037DB85 /* FUtils.swift */,
+				DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */,
+				DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */,
+				D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */,
+				DF76E74020F6A85700AE5236 /* InMealViewController.swift */,
+				DF707BBF20F68ABF006B611A /* StartMealViewController.swift */,
 				DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */,
 				F632C40020E48DD0005D5805 /* Assets.xcassets */,
 				F632C40220E48DD0005D5805 /* LaunchScreen.storyboard */,
 				F632C40520E48DD0005D5805 /* Info.plist */,
 				DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */,
 				DFA39A1520E80AAE00E54064 /* MealTableViewController.swift */,
+				D234B77120FF064C003C5AA8 /* DisplayTableViewController.swift */,
+				D234B77320FF067F003C5AA8 /* addItemViewController.swift */,
+				D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */,
 				DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */,
 				DF86C5E620ED5FA4001F3778 /* MusicController.swift */,
+				DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */,
+				DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */,
+				DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */,
+				DFAC230020F8017400DA24AA /* Music */,
+				DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */,
 			);
 			path = FoodForThought;
 			sourceTree = "<group>";
@@ -167,6 +298,23 @@
 				F632C41B20E48DD1005D5805 /* Info.plist */,
 			);
 			path = FoodForThoughtUITests;
+			sourceTree = "<group>";
+		};
+		F6DCEA8F20FDD991007D4FD1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F6DCEA9020FDD991007D4FD1 /* Info-tvOS.plist */,
+				F6DCEA9120FDD991007D4FD1 /* Info.plist */,
+				F6DCEA9220FDD991007D4FD1 /* Result.swift */,
+				F6DCEA9320FDD991007D4FD1 /* Socket.swift */,
+				F6DCEA9420FDD991007D4FD1 /* SwiftSocket.h */,
+				F6DCEA9520FDD991007D4FD1 /* TCPClient.swift */,
+				F6DCEA9620FDD991007D4FD1 /* UDPClient.swift */,
+				F6DCEA9720FDD991007D4FD1 /* ytcpsocket.c */,
+				F6DCEA9820FDD991007D4FD1 /* yudpsocket.c */,
+			);
+			name = Sources;
+			path = ../SwiftSocket/Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +379,13 @@
 		F632C3EC20E48DD0005D5805 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					AuthorView,
+				);
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Jordan Ehrenholz";
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Food For Thought";
 				TargetAttributes = {
 					F632C3F320E48DD0005D5805 = {
 						CreatedOnToolsVersion = 9.2;
@@ -277,15 +429,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFECD16E20ED70D000515451 /* PPAP.mp3 in Resources */,
+				D202C6A9211172F600F0E660 /* forum.png in Resources */,
 				F632C40420E48DD0005D5805 /* LaunchScreen.storyboard in Resources */,
-				DFECD16F20ED70D000515451 /* October.mp3 in Resources */,
+				DFAC230820F8017400DA24AA /* PPAP.mp3 in Resources */,
+				DFAC230720F8017400DA24AA /* October.mp3 in Resources */,
+				D202C6A7211172F600F0E660 /* music.png in Resources */,
+				D202C6A5211172F600F0E660 /* settings.png in Resources */,
+				DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */,
+				D202C6A4211172F600F0E660 /* home.png in Resources */,
 				F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */,
-				DFECD16D20ED70D000515451 /* Kiss The Rain.mp3 in Resources */,
-				DFECD17020ED70D000515451 /* The Truth That You Leave.mp3 in Resources */,
-				6DC242C620F69F7F007D9139 /* Raise Your Voice.mp3 in Resources */,
+				DFAC230620F8017400DA24AA /* Kiss The Rain.mp3 in Resources */,
+				F6DCEA9920FDD991007D4FD1 /* Info-tvOS.plist in Resources */,
+				D202C69D21114BE900F0E660 /* fftHome2.jpg in Resources */,
 				DFECD17220ED732300515451 /* mealProfile.xml in Resources */,
+				F6DCEA9A20FDD991007D4FD1 /* Info.plist in Resources */,
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
+				D202C6A6211172F600F0E660 /* Journal.png in Resources */,
+				D28EDF402110294A007C1000 /* home.jpg in Resources */,
+				DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */,
+				D202C6A8211172F600F0E660 /* about.png in Resources */,
+				DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */,
+				DFD75BE12109081D008451DF /* mindfulEatingPrompts.txt in Resources */,
+				D28EDF3E211022E6007C1000 /* Small-fresh-iphone-se-wallpaper-ilikewallpaper_com.jpg in Resources */,
+				D202C69A2111481C00F0E660 /* fftHome.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,13 +476,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6DCEA9E20FDD991007D4FD1 /* UDPClient.swift in Sources */,
+				F6DCEA9D20FDD991007D4FD1 /* TCPClient.swift in Sources */,
+				F659DAC02110C10000F70DDA /* FSignInVC.swift in Sources */,
+				F6DCEADC20FDDA56007D4FD1 /* FDebugVC.swift in Sources */,
+				DF707BC020F68ABF006B611A /* StartMealViewController.swift in Sources */,
 				DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */,
+				D234B77220FF064C003C5AA8 /* DisplayTableViewController.swift in Sources */,
+				DFDB12EC2107BE990055C0A2 /* JournalTableViewCell.swift in Sources */,
 				F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */,
+				F63574AB210DCBE40037DB85 /* FUtils.swift in Sources */,
+				D234B77620FF06D0003C5AA8 /* UpdateItemViewController.swift in Sources */,
 				DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */,
+				F6DCEA9F20FDD991007D4FD1 /* ytcpsocket.c in Sources */,
+				DFDB12EE2107CE8E0055C0A2 /* PostMealViewController.swift in Sources */,
 				F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */,
+				F6AFD0CD2108424600942881 /* FBrowseVC.swift in Sources */,
 				DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */,
+				F699B816210990F20028B3C0 /* FPostTableCell.swift in Sources */,
+				F6DCEAA020FDD991007D4FD1 /* yudpsocket.c in Sources */,
+				F6DCEA9B20FDD991007D4FD1 /* Result.swift in Sources */,
+				F6DCEA9C20FDD991007D4FD1 /* Socket.swift in Sources */,
 				DF86C5E720ED5FA5001F3778 /* MusicController.swift in Sources */,
+				DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */,
+				F6601C6521041D4900578EF7 /* FCreatePostVC.swift in Sources */,
+				D234B77420FF067F003C5AA8 /* addItemViewController.swift in Sources */,
 				DFA39A1620E80AAE00E54064 /* MealTableViewController.swift in Sources */,
+				D234B77020FF0020003C5AA8 /* JournalModel.xcdatamodeld in Sources */,
+				DF76E74120F6A85700AE5236 /* InMealViewController.swift in Sources */,
 				F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +573,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -393,6 +581,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -420,7 +609,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -443,6 +633,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -450,6 +641,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -471,7 +663,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MACH_O_TYPE = mh_execute;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -484,17 +677,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DB3D83U263;
-				HEADER_SEARCH_PATHS = "";
+				DEVELOPMENT_TEAM = 5DP7XW6B6J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FoodForThought/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought;
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodForThought/FoodForThought-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -504,16 +705,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DB3D83U263;
-				HEADER_SEARCH_PATHS = "";
+				DEVELOPMENT_TEAM = 5DP7XW6B6J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FoodForThought/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought;
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThought1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodForThought/FoodForThought-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -555,8 +764,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FoodForThoughtUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThoughtUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -570,8 +781,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FoodForThoughtUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.FoodForThoughtUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -620,6 +833,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D234B76E20FF0020003C5AA8 /* JournalModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */,
+			);
+			currentVersion = D234B76F20FF0020003C5AA8 /* JournalModel.xcdatamodel */;
+			path = JournalModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F632C3EC20E48DD0005D5805 /* Project object */;
 }

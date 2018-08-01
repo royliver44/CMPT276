@@ -3,7 +3,7 @@
 //  FoodForThought
 //
 //  Created by Andy Adams on 6/29/18.
-//  Copyright © 2018 Jordan Ehrenholz. All rights reserved.
+//  Copyright © 2018 Food For Thought All rights reserved.
 //
 
 import UIKit
@@ -17,6 +17,7 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
     @IBOutlet weak var deleteMealButton: UIButton!
     
     var activeTextField: UITextField?
+    var activeTextFieldTextBeforeEdit: String = String()
     var mealCellDelegate: MealCellDelegate?
     var indexPathRow: Int = 0
     
@@ -25,13 +26,16 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
     @IBAction func deleteMeal(_ sender: UIButton) {
         mealName.text = ""
         mealTime.text = ""
+        mealDuration.text = ""
         self.mealCellDelegate?.mealWasDeleted(row: indexPathRow)
     }
     
     // Edits meal name of meal in cell
     @IBAction func editMealName(_ sender: UITextField) {
-        activeTextField = sender
-        self.mealCellDelegate?.nameWasEdited(activeTextField!, row: indexPathRow)
+        if sender.text == "" {
+            sender.text = activeTextFieldTextBeforeEdit
+        }
+        self.mealCellDelegate?.nameWasEdited((sender.text)!, row: indexPathRow)
     }
     
     // Edits meal time of meal in cell
@@ -72,14 +76,15 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
     // Finishes using timepicker to edit meal time
     @objc func doneTimePickerPressed(){
         self.endEditing(true)
-        self.mealCellDelegate?.timeWasEdited(activeTextField!, row: indexPathRow)
+        self.mealCellDelegate?.timeWasEdited(activeTextField!.text!, row: indexPathRow)
     }
     
     // Edit meal duration
     @IBAction func editDuration(_ sender: UITextField) {
-        activeTextField = sender
-        let duration = activeTextField?.text
-        self.mealCellDelegate?.durationWasEdited(duration: duration!, row: indexPathRow)
+        if sender.text == "" {
+            sender.text = activeTextFieldTextBeforeEdit
+        }
+        self.mealCellDelegate?.durationWasEdited(duration: sender.text!, row: indexPathRow)
     }
     
     // If there are no scheduled meals, hide/disable all fields in cell
@@ -111,15 +116,49 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
         mealDuration.text = meal.mealDuration
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+        activeTextFieldTextBeforeEdit = (activeTextField?.text)!
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
-        textField.resignFirstResponder()
+        if activeTextField == mealName {
+            if textField.text != "" {
+                if (self.mealCellDelegate?.isNameUnique(mealName: textField.text!))! || textField.text == activeTextFieldTextBeforeEdit {
+                    textField.endEditing(true)
+                    textField.resignFirstResponder()
+                } else {
+                    textField.text = activeTextFieldTextBeforeEdit
+                }
+            }
+        } else if activeTextField == mealDuration {
+            textField.endEditing(true)
+            textField.resignFirstResponder()
+        }
         return false
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.text = activeTextFieldTextBeforeEdit
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Ensure only numbers are entered as input
+        let characterSet = CharacterSet(charactersIn: "0123456789")
+        if textField == mealDuration {
+            return string.rangeOfCharacter(from: characterSet.inverted) == nil
+        } else {
+            return true
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         mealName.delegate = self
+        mealDuration.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -131,8 +170,9 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
 // Custom protocol to enable MealTableViewController to update meal data source
 // with edited values
 protocol MealCellDelegate {
-    func nameWasEdited(_ mealNameTextField: UITextField, row: Int)
-    func timeWasEdited(_ mealTimeTextField: UITextField, row: Int)
+    func nameWasEdited(_ mealName: String, row: Int)
+    func isNameUnique(mealName: String) -> Bool
+    func timeWasEdited(_ mealTime: String, row: Int)
     func durationWasEdited(duration: String, row: Int)
     func mealWasDeleted(row: Int)
 }

@@ -1,1 +1,0 @@
-ssh -i secondPair.pem ec2-user@184.73.132.214
