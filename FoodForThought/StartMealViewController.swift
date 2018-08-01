@@ -35,15 +35,30 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var happinessSlider: UISlider!
     @IBOutlet var unscheduledMealName: UITextField!
     
-    
+    @IBOutlet weak var myImageView: UIImageView!
 
     // MARK: Actions
     @IBAction func takePhoto(_ sender: UIButton) {
-        imagePicker =  UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        let image =  UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.camera
         
-        present(imagePicker, animated: true, completion: nil)
+        image.allowsEditing = false
+        self.present(image, animated: true)
+        {
+            //After it is complete
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            myImageView.image = image
+        }
+        else{
+            //error message
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
