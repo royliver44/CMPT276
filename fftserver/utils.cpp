@@ -12,7 +12,6 @@ void DPrint(string message)
   }
 }
 
-
 void DPrint(int success, int error, std::string message)
 {
   if (error != success && DEBUG_LEVEL > 0)

@@ -8,89 +8,110 @@
 
 import UIKit
 
-class FCreatePostVC: UIViewController {
+class FCreatePostVC: UIViewController, UITextViewDelegate
+{
+    @IBOutlet var signedInAsLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var signInOutButton: UIButton!
+    @IBOutlet var bodyText: UITextView!
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var submitButton: UIButton!
     
-    @IBOutlet var bodyOfPost: UITextView!
-    @IBOutlet var SubmitButton: UIButton!
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        UpdateUI()
+        bodyText.text = "Enter your post here!"
+        bodyText.textColor = UIColor.lightGray
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func SubmitButtonPressed() {
-        let response = SendMessage(outgoingMessage: "P:" + bodyOfPost.text)
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-func SendMessage(outgoingMessage: String) -> String {
-    
-    // declare a variable to return
-    var response = ""
-    
-    // create a socket object to connect to fftserver
-    let client = TCPClient(address: "184.73.132.214", port: 12345)
-    
-    // connect to fftserver
-    switch client.connect(timeout: 1){
-    case .success:
-        print("Connection successful")
-        
-        // send whatever is in the text field
-        switch client.send(string: outgoingMessage ) {
-        case .success:
-            print("Message sent to server")
-            
-            // wait for data to be available
-            while(client.bytesAvailable() == 0) {}
-            print("Data available")
-            
-            let availableBytes32: Int32 = client.bytesAvailable()!
-            let availableBytes = Int(availableBytes32)
-            
-            // read the available data
-            guard let data = client.read(availableBytes, timeout: 1) else{
-                print("ERROR receiving message from server, gaurd engaged")
-                return ""
-            }
-            print("Message received from server")
-            
-            // convert response to a string
-            response = String(bytes: data, encoding: .utf8)!
-            if (response != "") {
-                print(response)
-            }
-            else{
-                print("ERROR interpreting server response:")
-                return ""
-            }
-            
-        case .failure(let error):
-            print("ERROR sending message to server")
-            print(error)
-            return ""
+    // triggered when the submit button is pressed
+    // sends the post to the server to be stored in the database
+    @IBAction func SubmitPost(_ sender: UIButton)
+    {
+        if (bodyText.text == "Enter Your Message Here!" || bodyText.text == "")
+        {
+            // visual error
+            return
         }
-    case .failure(let error):
-        print("ERROR connecting to server")
-        print(error)
-        return ""
+        let message: String = "CP" + GenerateUIDandTicket() + delimChar + "'" + bodyText.text + "'"
+        let response: String = TalkToServer(outgoingMessage: message)
+        if (response == successHeader)
+        {
+            performSegue(withIdentifier: "afterSubmitPost", sender: self)
+        }
+        else
+        {
+            // visual error
+        }
     }
     
-    return response
+    // triggered when the sign in button is pressed
+    // either logs the user out or transitions to the login page
+    @IBAction func SignInButtonPressed(_ sender: UIButton)
+    {
+        if (userID_s == "0")
+        {
+            performSegue(withIdentifier: "goToSignIn", sender: self)
+        }
+        else
+        {
+            let response: String = TalkToServer(outgoingMessage: "UO" + GenerateUIDandTicket())
+            if (response == successHeader)
+            {
+                userID_s = "0"
+                userName_s = ""
+                userTicket_s = "0"
+                UpdateUI()
+            }
+            else
+            {
+                // visual error
+                return
+            }
+        }
+    }
+    
+    // refreshes the UI objects that depend on login state
+    func UpdateUI()
+    {
+        if (userID_s == "0")
+        {
+            signedInAsLabel.text = "You are anonymous at the moment"
+            nameLabel.text = ""
+            signInOutButton.setTitle("Sign In", for: UIControlState.normal)
+        }
+        else
+        {
+            signedInAsLabel.text = "Signed in as:"
+            nameLabel.text = userName_s
+            signInOutButton.setTitle("Sign Out", for: UIControlState.normal)
+        }
+    }
+    
+    // deletes the placeholder text in the
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        if textView.textColor == UIColor.lightGray
+        {
+            textView.text = ""
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView)
+    {
+        if textView.text.isEmpty {
+            textView.text = "Enter your message!"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
 }
+
+

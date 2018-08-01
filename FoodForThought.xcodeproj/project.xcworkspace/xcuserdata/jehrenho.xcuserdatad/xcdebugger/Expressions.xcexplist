@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FBrowseVC.tableView(_:cellForRowAt:):FBrowseVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "latestPage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FBrowseVC.PopularButtonPressed(_:):FBrowseVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "latestPage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "mach_msg_trap:(null)">
+         <PersistentStrings>
+            <PersistentString
+               value = "latestPage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FPostTableCell.UpdateUI():FPostTableCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postData">
+            </PersistentString>
+            <PersistentString
+               value = "userID_s">
+            </PersistentString>
+            <PersistentString
+               value = "authorData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FPostTableCell.HateButtonPressed(_:):FPostTableCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FSignInVC.ReturnToLastView():FSignInVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userID_s">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FPostTableCell.LoveButtonPressed(_:):FPostTableCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "postData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -25,11 +25,16 @@
 		F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F720E48DD0005D5805 /* AppDelegate.swift */; };
 		F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F920E48DD0005D5805 /* FirstViewController.swift */; };
 		F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3FB20E48DD0005D5805 /* SecondViewController.swift */; };
-		F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F632C3FD20E48DD0005D5805 /* Main.storyboard */; };
+		F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F632C3FD20E48DD0005D5805 /* Main.storyboard */; settings = {ASSET_TAGS = (AuthorView, ); }; };
 		F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F632C40020E48DD0005D5805 /* Assets.xcassets */; };
 		F632C40420E48DD0005D5805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F632C40220E48DD0005D5805 /* LaunchScreen.storyboard */; };
 		F632C40F20E48DD1005D5805 /* FoodForThoughtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C40E20E48DD1005D5805 /* FoodForThoughtTests.swift */; };
 		F632C41A20E48DD1005D5805 /* FoodForThoughtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C41920E48DD1005D5805 /* FoodForThoughtUITests.swift */; };
+		F63574AB210DCBE40037DB85 /* FUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63574AA210DCBE40037DB85 /* FUtils.swift */; };
+		F659DAC02110C10000F70DDA /* FSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F659DABF2110C10000F70DDA /* FSignInVC.swift */; };
+		F6601C6521041D4900578EF7 /* FCreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6601C6421041D4900578EF7 /* FCreatePostVC.swift */; };
+		F699B816210990F20028B3C0 /* FPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699B815210990F20028B3C0 /* FPostTableCell.swift */; };
+		F6AFD0CD2108424600942881 /* FBrowseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFD0CC2108424500942881 /* FBrowseVC.swift */; };
 		F6DCEA9920FDD991007D4FD1 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6DCEA9020FDD991007D4FD1 /* Info-tvOS.plist */; };
 		F6DCEA9A20FDD991007D4FD1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6DCEA9120FDD991007D4FD1 /* Info.plist */; };
 		F6DCEA9B20FDD991007D4FD1 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9220FDD991007D4FD1 /* Result.swift */; };
@@ -38,7 +43,7 @@
 		F6DCEA9E20FDD991007D4FD1 /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9620FDD991007D4FD1 /* UDPClient.swift */; };
 		F6DCEA9F20FDD991007D4FD1 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9720FDD991007D4FD1 /* ytcpsocket.c */; };
 		F6DCEAA020FDD991007D4FD1 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEA9820FDD991007D4FD1 /* yudpsocket.c */; };
-		F6DCEADC20FDDA56007D4FD1 /* ForumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEADB20FDDA56007D4FD1 /* ForumViewController.swift */; };
+		F6DCEADC20FDDA56007D4FD1 /* FDebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCEADB20FDDA56007D4FD1 /* FDebugVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +95,11 @@
 		F632C41520E48DD1005D5805 /* FoodForThoughtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodForThoughtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F632C41920E48DD1005D5805 /* FoodForThoughtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodForThoughtUITests.swift; sourceTree = "<group>"; };
 		F632C41B20E48DD1005D5805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F63574AA210DCBE40037DB85 /* FUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUtils.swift; sourceTree = "<group>"; };
+		F659DABF2110C10000F70DDA /* FSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSignInVC.swift; sourceTree = "<group>"; };
+		F6601C6421041D4900578EF7 /* FCreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCreatePostVC.swift; sourceTree = "<group>"; };
+		F699B815210990F20028B3C0 /* FPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPostTableCell.swift; sourceTree = "<group>"; };
+		F6AFD0CC2108424500942881 /* FBrowseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FBrowseVC.swift; path = /Users/jehrenho/courses/cmpt276/allnight/FoodForThought/FoodForThought/FBrowseVC.swift; sourceTree = "<absolute>"; };
 		F6DCEA9020FDD991007D4FD1 /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		F6DCEA9120FDD991007D4FD1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6DCEA9220FDD991007D4FD1 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -99,7 +109,7 @@
 		F6DCEA9620FDD991007D4FD1 /* UDPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
 		F6DCEA9720FDD991007D4FD1 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		F6DCEA9820FDD991007D4FD1 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
-		F6DCEADB20FDDA56007D4FD1 /* ForumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ForumViewController.swift; path = ../../ForumViewController.swift; sourceTree = "<group>"; };
+		F6DCEADB20FDDA56007D4FD1 /* FDebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FDebugVC.swift; path = ../../FDebugVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +187,12 @@
 				F632C3F920E48DD0005D5805 /* FirstViewController.swift */,
 				F632C3FB20E48DD0005D5805 /* SecondViewController.swift */,
 				F632C3FD20E48DD0005D5805 /* Main.storyboard */,
+				F659DABF2110C10000F70DDA /* FSignInVC.swift */,
+				F6DCEADB20FDDA56007D4FD1 /* FDebugVC.swift */,
+				F6AFD0CC2108424500942881 /* FBrowseVC.swift */,
+				F6601C6421041D4900578EF7 /* FCreatePostVC.swift */,
+				F699B815210990F20028B3C0 /* FPostTableCell.swift */,
+				F63574AA210DCBE40037DB85 /* FUtils.swift */,
 				DF76E74020F6A85700AE5236 /* InMealViewController.swift */,
 				DF707BBF20F68ABF006B611A /* StartMealViewController.swift */,
 				DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */,
@@ -191,7 +207,6 @@
 				DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */,
 				DFAC230020F8017400DA24AA /* Music */,
 				DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */,
-				F6DCEADB20FDDA56007D4FD1 /* ForumViewController.swift */,
 			);
 			path = FoodForThought;
 			sourceTree = "<group>";
@@ -293,6 +308,9 @@
 		F632C3EC20E48DD0005D5805 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					AuthorView,
+				);
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Jordan Ehrenholz";
@@ -377,19 +395,24 @@
 			files = (
 				F6DCEA9E20FDD991007D4FD1 /* UDPClient.swift in Sources */,
 				F6DCEA9D20FDD991007D4FD1 /* TCPClient.swift in Sources */,
-				F6DCEADC20FDDA56007D4FD1 /* ForumViewController.swift in Sources */,
+				F659DAC02110C10000F70DDA /* FSignInVC.swift in Sources */,
+				F6DCEADC20FDDA56007D4FD1 /* FDebugVC.swift in Sources */,
 				DF707BC020F68ABF006B611A /* StartMealViewController.swift in Sources */,
 				DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */,
 				F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */,
+				F63574AB210DCBE40037DB85 /* FUtils.swift in Sources */,
 				DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */,
 				F6DCEA9F20FDD991007D4FD1 /* ytcpsocket.c in Sources */,
 				F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */,
+				F6AFD0CD2108424600942881 /* FBrowseVC.swift in Sources */,
 				DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */,
+				F699B816210990F20028B3C0 /* FPostTableCell.swift in Sources */,
 				F6DCEAA020FDD991007D4FD1 /* yudpsocket.c in Sources */,
 				F6DCEA9B20FDD991007D4FD1 /* Result.swift in Sources */,
 				F6DCEA9C20FDD991007D4FD1 /* Socket.swift in Sources */,
 				DF86C5E720ED5FA5001F3778 /* MusicController.swift in Sources */,
 				DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */,
+				F6601C6521041D4900578EF7 /* FCreatePostVC.swift in Sources */,
 				DFA39A1620E80AAE00E54064 /* MealTableViewController.swift in Sources */,
 				DF76E74120F6A85700AE5236 /* InMealViewController.swift in Sources */,
 				F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */,
