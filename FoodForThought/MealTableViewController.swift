@@ -214,7 +214,7 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
             // Create notification requests based on triggers and add to notification center
             let requestNow = UNNotificationRequest(identifier: nowIdentifier, content: contentNow, trigger: triggerNow)
             UNUserNotificationCenter.current().add(requestNow, withCompletionHandler: {(error) in
-                if let error = error {
+                if error != nil {
                     print("SOMETHING WENT WRONG")
                 }
             })
@@ -251,7 +251,7 @@ class MealTableViewController: UITableViewController, UITextFieldDelegate, UIPic
                 // Create notification requests based on trigger and add to notification center
                 let requestUpcoming = UNNotificationRequest(identifier: upcomingIdentifier, content: contentUpcoming, trigger: triggerUpcoming)
                 UNUserNotificationCenter.current().add(requestUpcoming, withCompletionHandler: {(error) in
-                    if let error = error {
+                    if error != nil {
                         print("SOMETHING WENT WRONG")
                     }
                 })

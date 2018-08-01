@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -70,7 +70,7 @@
 		11553AB698B72E93630850DC395D94C5 /* CalendarStructs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarStructs.swift; path = Sources/CalendarStructs.swift; sourceTree = "<group>"; };
 		1208F9DABE64C82B9018F08605685947 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E4769CA279917C32BF7958902F92B3 /* Pods-FoodForThoughtTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FoodForThoughtTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		28EA42B074D73FC08DE8E3A95A285DCA /* Pods_FoodForThoughtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FoodForThoughtTests.framework; path = "Pods-FoodForThoughtTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28EA42B074D73FC08DE8E3A95A285DCA /* Pods_FoodForThoughtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodForThoughtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		304C6D8CE3CF203C175AA67E3DF06AC5 /* JTAppleCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-prefix.pch"; sourceTree = "<group>"; };
 		33DCC9B301D596CEBB0DD8105B517113 /* InternalQueryFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalQueryFunctions.swift; path = Sources/InternalQueryFunctions.swift; sourceTree = "<group>"; };
 		351A2C5A0BB0E7AA5E4DAEA55CBE17B3 /* Pods-FoodForThoughtTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FoodForThoughtTests-dummy.m"; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		7ABBCB0766E49BD85D9AEE9BC16EEEDC /* Pods-FoodForThought.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoodForThought.debug.xcconfig"; sourceTree = "<group>"; };
 		7B18DC9FAA5BB1B11B305A7C40F516DF /* Pods-FoodForThought-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FoodForThought-frameworks.sh"; sourceTree = "<group>"; };
 		874602A3842C61242554E2E724612E75 /* Pods-FoodForThoughtUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoodForThoughtUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97954C104DFBBEA5C72800F8F88CDF9A /* Pods-FoodForThoughtUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FoodForThoughtUITests-umbrella.h"; sourceTree = "<group>"; };
 		9B612990F024402BE91ED935CBF983F4 /* Pods-FoodForThought-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FoodForThought-dummy.m"; sourceTree = "<group>"; };
 		9CEF845A69455A4A94C673E3BD05B2C5 /* JTAppleCollectionReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCollectionReusableView.swift; path = Sources/JTAppleCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -110,15 +110,15 @@
 		BF94872E6C5C3C4B342551466A836BEC /* InternalActionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalActionFunctions.swift; path = Sources/InternalActionFunctions.swift; sourceTree = "<group>"; };
 		C6A69C7D178890C4DBC78A46CB018043 /* Pods-FoodForThought-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FoodForThought-resources.sh"; sourceTree = "<group>"; };
 		CAB9B2CC3F9DB7F5724CC988C9543DEC /* JTAppleCalendarDelegateProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarDelegateProtocol.swift; path = Sources/JTAppleCalendarDelegateProtocol.swift; sourceTree = "<group>"; };
-		DA7BB1A947ACE717F09DF8CEEB538EC2 /* Pods_FoodForThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FoodForThought.framework; path = "Pods-FoodForThought.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA7BB1A947ACE717F09DF8CEEB538EC2 /* Pods_FoodForThought.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodForThought.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA6CF2E2D0E32E7316E40580D80CE31 /* Pods-FoodForThoughtTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FoodForThoughtTests-resources.sh"; sourceTree = "<group>"; };
 		DFB142AED1575E8891A28FA86694D132 /* Pods-FoodForThought.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoodForThought.release.xcconfig"; sourceTree = "<group>"; };
 		DFC19A8C0902A38BDF5449B4FBAC8821 /* Pods-FoodForThoughtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FoodForThoughtTests.release.xcconfig"; sourceTree = "<group>"; };
-		E68D74A2B3AE211A71D7E43487A4158B /* Pods_FoodForThoughtUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FoodForThoughtUITests.framework; path = "Pods-FoodForThoughtUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E68D74A2B3AE211A71D7E43487A4158B /* Pods_FoodForThoughtUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodForThoughtUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3426D14FB5C08BBD6272ABC8CBD01AB /* CalendarEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarEnums.swift; path = Sources/CalendarEnums.swift; sourceTree = "<group>"; };
 		F5F04D23C4665C25BDBF46EC968F27F9 /* UICollectionViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICollectionViewDelegates.swift; path = Sources/UICollectionViewDelegates.swift; sourceTree = "<group>"; };
 		F641F2B7D1CD142B5F84497B0688A5D0 /* Pods-FoodForThoughtUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FoodForThoughtUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F8012616C9E8971E3AC3CAFB87B9D6A9 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTAppleCalendar.framework; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8012616C9E8971E3AC3CAFB87B9D6A9 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF3F9A2BDEA400B6B86E1F3FB87D141 /* GlobalFunctionsAndExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalFunctionsAndExtensions.swift; path = Sources/GlobalFunctionsAndExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,7 +303,6 @@
 				0A6F4EECBD86B64A44448320B07E87AD /* UserInteractionFunctions.swift */,
 				4C0621B7D6AC65FF278C535F1D838ED2 /* Support Files */,
 			);
-			name = JTAppleCalendar;
 			path = JTAppleCalendar;
 			sourceTree = "<group>";
 		};
@@ -423,7 +422,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -808,6 +807,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
