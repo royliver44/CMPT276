@@ -3,7 +3,7 @@
 //  FoodForThought
 //
 //  Created by Andy Adams on 6/29/18.
-//  Copyright © 2018 Jordan Ehrenholz. All rights reserved.
+//  Copyright © 2018 Food For Thought All rights reserved.
 //
 
 import UIKit
@@ -141,6 +141,16 @@ class MealTableViewCell: UITableViewCell, UIPickerViewDelegate, UITextFieldDeleg
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text == "" {
             textField.text = activeTextFieldTextBeforeEdit
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Ensure only numbers are entered as input
+        let characterSet = CharacterSet(charactersIn: "0123456789")
+        if textField == mealDuration {
+            return string.rangeOfCharacter(from: characterSet.inverted) == nil
+        } else {
+            return true
         }
     }
     
