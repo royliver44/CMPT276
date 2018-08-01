@@ -22,6 +22,10 @@
 		D234B77420FF067F003C5AA8 /* addItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77320FF067F003C5AA8 /* addItemViewController.swift */; };
 		D234B77620FF06D0003C5AA8 /* UpdateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */; };
 		D2DDD166211244AF00A70DA9 /* fftHome2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2DDD165211244AE00A70DA9 /* fftHome2.jpg */; };
+		D2DDD16B2112546F00A70DA9 /* Idealism - Both Of Us.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2DDD1672112546F00A70DA9 /* Idealism - Both Of Us.mp3 */; };
+		D2DDD16C2112546F00A70DA9 /* Eddie Rohosy - Night Ride.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2DDD1682112546F00A70DA9 /* Eddie Rohosy - Night Ride.mp3 */; };
+		D2DDD16D2112546F00A70DA9 /* jinsang - affection..mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2DDD1692112546F00A70DA9 /* jinsang - affection..mp3 */; };
+		D2DDD16E2112546F00A70DA9 /* Med Monk unfamiliar place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2DDD16A2112546F00A70DA9 /* Med Monk unfamiliar place.mp3 */; };
 		DF29C62F20F95ABE0025FB53 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */; };
 		DF47C74C20E69A3E002F1D8A /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74B20E69A3E002F1D8A /* MealTableViewCell.swift */; };
 		DF47C74E20E69F8A002F1D8A /* ScheduledMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF47C74D20E69F8A002F1D8A /* ScheduledMeal.swift */; };
@@ -29,11 +33,6 @@
 		DF76E74120F6A85700AE5236 /* InMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF76E74020F6A85700AE5236 /* InMealViewController.swift */; };
 		DF86C5E720ED5FA5001F3778 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86C5E620ED5FA4001F3778 /* MusicController.swift */; };
 		DFA39A1620E80AAE00E54064 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA39A1520E80AAE00E54064 /* MealTableViewController.swift */; };
-		DFAC230620F8017400DA24AA /* Kiss The Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230120F8017400DA24AA /* Kiss The Rain.mp3 */; };
-		DFAC230720F8017400DA24AA /* October.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230220F8017400DA24AA /* October.mp3 */; };
-		DFAC230820F8017400DA24AA /* PPAP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230320F8017400DA24AA /* PPAP.mp3 */; };
-		DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */; };
-		DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */; };
 		DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */; };
 		DFD75BE12109081D008451DF /* mindfulEatingPrompts.txt in Resources */ = {isa = PBXBuildFile; fileRef = DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */; };
 		DFDB12EC2107BE990055C0A2 /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */; };
@@ -82,6 +81,10 @@
 		D234B77320FF067F003C5AA8 /* addItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addItemViewController.swift; sourceTree = "<group>"; };
 		D234B77520FF06D0003C5AA8 /* UpdateItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateItemViewController.swift; sourceTree = "<group>"; };
 		D2DDD165211244AE00A70DA9 /* fftHome2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fftHome2.jpg; sourceTree = "<group>"; };
+		D2DDD1672112546F00A70DA9 /* Idealism - Both Of Us.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Idealism - Both Of Us.mp3"; sourceTree = "<group>"; };
+		D2DDD1682112546F00A70DA9 /* Eddie Rohosy - Night Ride.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Eddie Rohosy - Night Ride.mp3"; sourceTree = "<group>"; };
+		D2DDD1692112546F00A70DA9 /* jinsang - affection..mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jinsang - affection..mp3"; sourceTree = "<group>"; };
+		D2DDD16A2112546F00A70DA9 /* Med Monk unfamiliar place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Med Monk unfamiliar place.mp3"; sourceTree = "<group>"; };
 		DF29C62C20F95AA80025FB53 /* GDataXMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		DF29C62D20F95ABD0025FB53 /* FoodForThought-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodForThought-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF29C62E20F95ABE0025FB53 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
@@ -91,11 +94,6 @@
 		DF76E74020F6A85700AE5236 /* InMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMealViewController.swift; sourceTree = "<group>"; };
 		DF86C5E620ED5FA4001F3778 /* MusicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
 		DFA39A1520E80AAE00E54064 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
-		DFAC230120F8017400DA24AA /* Kiss The Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kiss The Rain.mp3"; sourceTree = "<group>"; };
-		DFAC230220F8017400DA24AA /* October.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = October.mp3; sourceTree = "<group>"; };
-		DFAC230320F8017400DA24AA /* PPAP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PPAP.mp3; sourceTree = "<group>"; };
-		DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Raise Your Voice.mp3"; sourceTree = "<group>"; };
-		DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Truth That You Leave.mp3"; sourceTree = "<group>"; };
 		DFCA432A20F92AD200F32A1F /* ios_camera_app_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ios_camera_app_icon.jpg; sourceTree = "<group>"; };
 		DFD75BE02109081D008451DF /* mindfulEatingPrompts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mindfulEatingPrompts.txt; sourceTree = "<group>"; };
 		DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
@@ -158,11 +156,10 @@
 		DFAC230020F8017400DA24AA /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				DFAC230120F8017400DA24AA /* Kiss The Rain.mp3 */,
-				DFAC230220F8017400DA24AA /* October.mp3 */,
-				DFAC230320F8017400DA24AA /* PPAP.mp3 */,
-				DFAC230420F8017400DA24AA /* Raise Your Voice.mp3 */,
-				DFAC230520F8017400DA24AA /* The Truth That You Leave.mp3 */,
+				D2DDD1682112546F00A70DA9 /* Eddie Rohosy - Night Ride.mp3 */,
+				D2DDD1672112546F00A70DA9 /* Idealism - Both Of Us.mp3 */,
+				D2DDD1692112546F00A70DA9 /* jinsang - affection..mp3 */,
+				D2DDD16A2112546F00A70DA9 /* Med Monk unfamiliar place.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -365,19 +362,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D202C6A9211172F600F0E660 /* forum.png in Resources */,
+				D2DDD16D2112546F00A70DA9 /* jinsang - affection..mp3 in Resources */,
 				F632C40420E48DD0005D5805 /* LaunchScreen.storyboard in Resources */,
-				DFAC230820F8017400DA24AA /* PPAP.mp3 in Resources */,
-				DFAC230720F8017400DA24AA /* October.mp3 in Resources */,
 				D202C6A7211172F600F0E660 /* music.png in Resources */,
 				D202C6A5211172F600F0E660 /* settings.png in Resources */,
-				DFAC230920F8017400DA24AA /* Raise Your Voice.mp3 in Resources */,
 				D202C6A4211172F600F0E660 /* home.png in Resources */,
 				D2DDD166211244AF00A70DA9 /* fftHome2.jpg in Resources */,
 				F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */,
-				DFAC230620F8017400DA24AA /* Kiss The Rain.mp3 in Resources */,
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
 				D202C6A6211172F600F0E660 /* Journal.png in Resources */,
-				DFAC230A20F8017400DA24AA /* The Truth That You Leave.mp3 in Resources */,
+				D2DDD16C2112546F00A70DA9 /* Eddie Rohosy - Night Ride.mp3 in Resources */,
+				D2DDD16E2112546F00A70DA9 /* Med Monk unfamiliar place.mp3 in Resources */,
+				D2DDD16B2112546F00A70DA9 /* Idealism - Both Of Us.mp3 in Resources */,
 				D202C6A8211172F600F0E660 /* about.png in Resources */,
 				DFCA432B20F92AD200F32A1F /* ios_camera_app_icon.jpg in Resources */,
 				DFD75BE12109081D008451DF /* mindfulEatingPrompts.txt in Resources */,
