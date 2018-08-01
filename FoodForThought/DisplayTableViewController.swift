@@ -48,12 +48,6 @@ class DisplayTableViewController: UITableViewController, UISearchBarDelegate {
         do {
             items = try context.fetch(Item.fetchRequest())
             filteredData = items
-
-//            for each in filteredData {
-//                self.context.delete(each)
-//                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-//            }
-//            filteredData.removeAll()
            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -71,11 +65,6 @@ extension DisplayTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalTableViewCell", for: indexPath) as! JournalTableViewCell
-        print(filteredData[indexPath.row].name!)
-        if filteredData[indexPath.row].entryText == "Shit" {
-            print(filteredData[indexPath.row].entryText!)
-            
-        }
         
         cell.entryTitle.text = filteredData[indexPath.row].name
         cell.entryDate.text = filteredData[indexPath.row].date!
