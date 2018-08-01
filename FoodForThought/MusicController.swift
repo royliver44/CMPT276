@@ -210,6 +210,7 @@ class musicController: UIViewController , UITableViewDataSource, UITableViewDele
         }catch{
             print(error)
         }
+        print("fetch local")
         musicController.shared.audioList = audioList
         AudioListCount = audioList.count
         

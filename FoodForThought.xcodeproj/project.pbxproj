@@ -40,7 +40,6 @@
 		DFDB12EC2107BE990055C0A2 /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */; };
 		DFDB12EE2107CE8E0055C0A2 /* PostMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */; };
 		DFE0DACC20E56628000D63E1 /* MealProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */; };
-		DFECD17220ED732300515451 /* mealProfile.xml in Resources */ = {isa = PBXBuildFile; fileRef = DFECD17120ED732300515451 /* mealProfile.xml */; };
 		F632C3F820E48DD0005D5805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F720E48DD0005D5805 /* AppDelegate.swift */; };
 		F632C3FA20E48DD0005D5805 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3F920E48DD0005D5805 /* FirstViewController.swift */; };
 		F632C3FC20E48DD0005D5805 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F632C3FB20E48DD0005D5805 /* SecondViewController.swift */; };
@@ -105,7 +104,6 @@
 		DFDB12EB2107BE990055C0A2 /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
 		DFDB12ED2107CE8E0055C0A2 /* PostMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMealViewController.swift; sourceTree = "<group>"; };
 		DFE0DACB20E56628000D63E1 /* MealProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealProfileViewController.swift; sourceTree = "<group>"; };
-		DFECD17120ED732300515451 /* mealProfile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mealProfile.xml; sourceTree = "<group>"; };
 		F632C3F420E48DD0005D5805 /* FoodForThought.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodForThought.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F632C3F720E48DD0005D5805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F632C3F920E48DD0005D5805 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 			children = (
 				C012FE7920FFECC600611864 /* Frameworks */,
 				DFCA432920F92A5800F32A1F /* Images */,
-				DFECD17120ED732300515451 /* mealProfile.xml */,
 				F632C3F720E48DD0005D5805 /* AppDelegate.swift */,
 				F632C3F920E48DD0005D5805 /* FirstViewController.swift */,
 				F632C3FB20E48DD0005D5805 /* SecondViewController.swift */,
@@ -382,7 +379,6 @@
 				D202C6A4211172F600F0E660 /* home.png in Resources */,
 				F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */,
 				DFAC230620F8017400DA24AA /* Kiss The Rain.mp3 in Resources */,
-				DFECD17220ED732300515451 /* mealProfile.xml in Resources */,
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
 				D202C6A6211172F600F0E660 /* Journal.png in Resources */,
 				D28EDF402110294A007C1000 /* home.jpg in Resources */,

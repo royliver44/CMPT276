@@ -20,6 +20,7 @@ class InMealViewController: UIViewController {
     var postMealViewController: PostMealViewController?
     var mealItem: Item?
     var mindfulEatingPrompts: [String]?
+    let music = musicController.shared
     
     // MARK: Outlets
     @IBOutlet var timeRemaining: UILabel!
@@ -58,6 +59,10 @@ class InMealViewController: UIViewController {
         // Create message timer to display mindful eating prompts
         let messageInterval = 60 * 5
         messageTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: (#selector(updateMessage)), userInfo: nil, repeats: true)
+        
+        music.fetch_local_music()
+        music.avAudioSetup()
+        music.play()
     }
 
     
@@ -89,6 +94,7 @@ class InMealViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "finishMeal" {
+            music.pause()
             if let viewController1 = segue.destination as? PostMealViewController {
                 self.postMealViewController = viewController1
                 postMealViewController?.currentMeal(mealItem: self.mealItem!)

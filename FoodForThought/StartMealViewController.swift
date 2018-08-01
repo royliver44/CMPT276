@@ -34,6 +34,7 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var calmnessSlider: UISlider!
     @IBOutlet var happinessSlider: UISlider!
     @IBOutlet var unscheduledMealName: UITextField!
+    @IBOutlet var enterNewMeal: UILabel!
     
     @IBOutlet weak var myImageView: UIImageView!
 
@@ -63,8 +64,6 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         sender.setValue(Float(lroundf(sender.value)), animated: true)
-        //preMealHunger = lroundf(sender.value)
-        //print(preMealHunger)
         
         switch sender {
         case hungerSlider:
@@ -162,17 +161,21 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         } catch {
             print(error)
         }
+        
+        // Set current meal to be first in list or "Other"
         mealNames.append("Other")
         currentMeal = mealNames[0]
         
         if currentMeal != "Other" {
             unscheduledMealName.isHidden = true
             unscheduledMealName.isEnabled = false
+            enterNewMeal.isHidden = true
         } else {
             unscheduledMealName.isHidden = false
             unscheduledMealName.isEnabled = true
         }
         
+        // Get current date to save with entry
         let date = Date()
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
@@ -221,9 +224,11 @@ class StartMealViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if currentMeal != "Other" {
             unscheduledMealName.isHidden = true
             unscheduledMealName.isEnabled = false
+            enterNewMeal.isHidden = true
         } else {
             unscheduledMealName.isHidden = false
             unscheduledMealName.isEnabled = true
+            enterNewMeal.isHidden = false
         }
     }
 }
