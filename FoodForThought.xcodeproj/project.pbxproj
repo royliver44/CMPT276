@@ -11,7 +11,6 @@
 		C012FE7E20FFECE000611864 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7B20FFECE000611864 /* SpotifyAudioPlayback.framework */; };
 		C012FE7F20FFECE000611864 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C012FE7C20FFECE000611864 /* SpotifyMetadata.framework */; };
 		D202C69A2111481C00F0E660 /* fftHome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D202C6982111481C00F0E660 /* fftHome.jpg */; };
-		D202C69D21114BE900F0E660 /* fftHome2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D202C69C21114BE900F0E660 /* fftHome2.jpg */; };
 		D202C6A4211172F600F0E660 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C69E211172F300F0E660 /* home.png */; };
 		D202C6A5211172F600F0E660 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C69F211172F400F0E660 /* settings.png */; };
 		D202C6A6211172F600F0E660 /* Journal.png in Resources */ = {isa = PBXBuildFile; fileRef = D202C6A0211172F400F0E660 /* Journal.png */; };
@@ -383,7 +382,6 @@
 				D202C6A4211172F600F0E660 /* home.png in Resources */,
 				F632C40120E48DD0005D5805 /* Assets.xcassets in Resources */,
 				DFAC230620F8017400DA24AA /* Kiss The Rain.mp3 in Resources */,
-				D202C69D21114BE900F0E660 /* fftHome2.jpg in Resources */,
 				DFECD17220ED732300515451 /* mealProfile.xml in Resources */,
 				F632C3FF20E48DD0005D5805 /* Main.storyboard in Resources */,
 				D202C6A6211172F600F0E660 /* Journal.png in Resources */,
@@ -617,7 +615,7 @@
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "-lxml2";
@@ -645,7 +643,7 @@
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = FoodForThought/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = "-lxml2";

@@ -44,7 +44,7 @@ class UpdateItemViewController: UIViewController, UITextViewDelegate {
         entryText!.becomeFirstResponder()
         configureEntryData(entry: item)
         
-        //sliderData.isEditable = false
+        sliderData.isEditable = false
         
         
     }
